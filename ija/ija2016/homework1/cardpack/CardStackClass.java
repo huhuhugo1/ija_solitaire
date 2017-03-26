@@ -4,11 +4,11 @@ import ija.ija2016.homework2.model.cards.CardStack;
 
 public class CardStackClass implements CardStack {
 
-    CardClass stack[];
+    Card stack[];
     int top;
 
     public CardStackClass(int size) {
-        this.stack = new CardClass[size];
+        this.stack = new Card[size];
         this.top = 0;
     }
 
@@ -44,9 +44,10 @@ public class CardStackClass implements CardStack {
     }
 
     /*** Interface implementation ***/
-    public boolean put(CardStack stack) { 
-        System.arraycopy(stack.stack, 0, this.stack, top, stack.size());
-        top += stack.size();        
+    public boolean put(CardStack stack) {
+        System.arraycopy(((CardStackClass)stack).stack, 0, this.stack, top, stack.size());
+        top += stack.size();
+        return true;     
     }
 
     public boolean put(Card card) {
@@ -69,7 +70,7 @@ public class CardStackClass implements CardStack {
             return new CardStackClass(0);
     }
 
-    public CardClass pop() {
+    public Card pop() {
         if (top == 0)
             return null;
         top--;

@@ -88,7 +88,7 @@ public class HomeWork2Test {
         Assert.assertEquals("Pocet karet v baliku je 0.", 0, pack.size());
         Assert.assertFalse("Nelze vlozit kartu", pack.put(c3));
         Assert.assertTrue("Pocet karet v baliku je 0.", pack.isEmpty());
-        Assert.assertTrue("Lze vlozit kartu", pack.put(c4));
+        Assert.assertTrue("Lze vlozit kartu", pack.put(c4));//
         Assert.assertEquals("Pocet karet v baliku je 1.", 1, pack.size());
         Assert.assertFalse("Nelze vlozit kartu", pack.put(c3));
         Assert.assertEquals("Pocet karet v baliku je 1.", 1, pack.size());
