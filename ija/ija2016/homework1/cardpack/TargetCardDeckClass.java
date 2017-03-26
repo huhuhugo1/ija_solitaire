@@ -4,12 +4,10 @@ import ija.ija2016.homework2.model.cards.CardDeck;
 
 public class TargetCardDeckClass extends CardDeckClass {
     Card.Color color;
-    int expected_value;
     
     public TargetCardDeckClass(int size, Card.Color color) {
         super(size);    //vola konstruktor predka
-        this.color = color;
-        expected_value = 1; 
+        this.color = color; 
     }
 
     @Override
@@ -17,15 +15,20 @@ public class TargetCardDeckClass extends CardDeckClass {
         if (top == deck.length)
             return false;
         
-        if (card.value() != expected_value) 
-            return false;
+        if (top == 0) {
+            if (card.value() != 1)
+                return false;
+        } else {
+            if ((deck[top-1].value() + 1) != card.value())
+                return false;
+        }
 
-        if (card.color() != color) //vkladam inu ako pozadovanu farbu
+        if (card.color() != color)
             return false;
 
         deck[top] = card;
         top++;
-        expected_value++;
-        return true; //TODO
+        
+        return true;
     }
 }
