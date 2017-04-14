@@ -1,0 +1,28 @@
+<project>
+  <target name="clean">
+    <delete dir="build"/>
+  </target>
+
+  <target name="compile">
+    <mkdir dir="build"/>
+    <javac srcdir="src" destdir="build" includeantruntime="false">
+      <classpath>
+        <pathelement path="lib/junit-4.12.jar"/>
+        <pathelement path="lib/hamcrest-core-1.3.jar"/>
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="jar" depends="compile">
+    <mkdir dir="jar"/>
+    <jar destfile="jar/TestRunner.jar" basedir="build">
+      <manifest>
+        <attribute name="Main-Class" value="TestRunner"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="run" depends="jar">
+    <java jar="jar/TestRunner.jar" fork="true"/>
+  </target>
+</project>

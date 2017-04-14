@@ -2,7 +2,7 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
-import ija.ija2016.homework2.HomeWork2Test;
+import src.tests.HomeWork2Test;
 
 public class TestRunner {
    public static void main(String[] args) {

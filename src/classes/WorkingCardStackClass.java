@@ -1,6 +1,6 @@
-package ija.ija2016.homework1.cardpack;
-import ija.ija2016.homework2.model.cards.Card;
-import ija.ija2016.homework2.model.cards.CardStack;; 
+package src.classes;
+import src.interfaces.Card;
+import src.interfaces.CardStack;; 
 
 public class WorkingCardStackClass extends CardStackClass
 {

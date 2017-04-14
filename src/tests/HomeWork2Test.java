@@ -1,12 +1,12 @@
 /*
  */
-package ija.ija2016.homework2;
+package src.tests;
 
-import ija.ija2016.homework2.model.board.AbstractFactorySolitaire;
-import ija.ija2016.homework2.model.board.FactoryKlondike;
-import ija.ija2016.homework2.model.cards.Card;
-import ija.ija2016.homework2.model.cards.CardDeck;
-import ija.ija2016.homework2.model.cards.CardStack;
+import src.factories.AbstractFactorySolitaire;
+import src.factories.FactoryKlondike;
+import src.interfaces.Card;
+import src.interfaces.CardDeck;
+import src.interfaces.CardStack;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.After;
@@ -88,7 +88,7 @@ public class HomeWork2Test {
         Assert.assertEquals("Pocet karet v baliku je 0.", 0, pack.size());
         Assert.assertFalse("Nelze vlozit kartu", pack.put(c3));
         Assert.assertTrue("Pocet karet v baliku je 0.", pack.isEmpty());
-        Assert.assertTrue("Lze vlozit kartu", pack.put(c4));//
+        Assert.assertTrue("Lze vlozit kartu", pack.put(c4));
         Assert.assertEquals("Pocet karet v baliku je 1.", 1, pack.size());
         Assert.assertFalse("Nelze vlozit kartu", pack.put(c3));
         Assert.assertEquals("Pocet karet v baliku je 1.", 1, pack.size());

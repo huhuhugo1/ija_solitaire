@@ -1,6 +1,6 @@
-package ija.ija2016.homework1.cardpack;
-import ija.ija2016.homework2.model.cards.Card;
-import ija.ija2016.homework2.model.cards.CardDeck;
+package src.classes;
+import src.interfaces.Card;
+import src.interfaces.CardDeck;
 
 public class CardDeckClass implements CardDeck {
 
