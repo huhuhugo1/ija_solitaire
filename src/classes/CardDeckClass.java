@@ -1,6 +1,6 @@
-package src.classes;
-import src.interfaces.Card;
-import src.interfaces.CardDeck;
+package classes;
+import interfaces.Card;
+import interfaces.CardDeck;
 
 public class CardDeckClass implements CardDeck {
 

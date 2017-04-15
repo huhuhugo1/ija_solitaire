@@ -1,5 +1,5 @@
-package src.classes;
-import src.interfaces.Card;
+package classes;
+import interfaces.Card;
 
 public class CardClass implements Card {
     

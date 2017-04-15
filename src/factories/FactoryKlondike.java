@@ -1,16 +1,16 @@
-package src.factories;
+package factories;
 
-import src.factories.AbstractFactorySolitaire;
+import factories.AbstractFactorySolitaire;
 
-import src.interfaces.Card;
-import src.interfaces.CardDeck;
-import src.interfaces.CardStack;
+import interfaces.Card;
+import interfaces.CardDeck;
+import interfaces.CardStack;
 
-import src.classes.CardClass;
-import src.classes.CardDeckClass;
-import src.classes.CardStackClass;
-import src.classes.TargetCardDeckClass;
-import src.classes.WorkingCardStackClass;
+import classes.CardClass;
+import classes.CardDeckClass;
+import classes.CardStackClass;
+import classes.TargetCardDeckClass;
+import classes.WorkingCardStackClass;
 
 public class FactoryKlondike extends AbstractFactorySolitaire {
     public CardDeck createCardDeck() {

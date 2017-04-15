@@ -1,12 +1,12 @@
 /*
  */
-package src.tests;
+package tests;
 
-import src.factories.AbstractFactorySolitaire;
-import src.factories.FactoryKlondike;
-import src.interfaces.Card;
-import src.interfaces.CardDeck;
-import src.interfaces.CardStack;
+import factories.AbstractFactorySolitaire;
+import factories.FactoryKlondike;
+import interfaces.Card;
+import interfaces.CardDeck;
+import interfaces.CardStack;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.After;

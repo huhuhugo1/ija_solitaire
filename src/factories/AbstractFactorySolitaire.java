@@ -1,12 +1,12 @@
-package src.factories;
+package factories;
 
-import src.interfaces.Card;
-import src.interfaces.CardDeck;
-import src.interfaces.CardStack;
+import interfaces.Card;
+import interfaces.CardDeck;
+import interfaces.CardStack;
 
-import src.classes.CardClass;
-import src.classes.CardDeckClass;
-import src.classes.CardStackClass;
+import classes.CardClass;
+import classes.CardDeckClass;
+import classes.CardStackClass;
 
 public abstract class AbstractFactorySolitaire extends java.lang.Object {
     public abstract CardDeck createCardDeck();
