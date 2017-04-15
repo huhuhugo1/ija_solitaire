@@ -14,7 +14,8 @@
   </target>
 
   <target name="run" depends="compile">
-    <junit printsummary="on">
+    <junit>
+    <formatter type="plain" usefile="false"/>
     <test name="tests.HomeWork2Test"/>
       <classpath>
         <pathelement location="build"/>
