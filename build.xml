@@ -14,12 +14,13 @@
   </target>
 
   <target name="run" depends="compile">
-    <java classname="TestRunner" fork="true">
+    <junit printsummary="on">
+    <test name="tests.HomeWork2Test"/>
       <classpath>
         <pathelement location="build"/>
         <pathelement location="lib/junit-4.12.jar"/>
 		    <pathelement location="lib/hamcrest-core-1.3.jar"/>
       </classpath>
-    </java> 
+    </junit> 
   </target>
 </project>
