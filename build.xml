@@ -8,7 +8,7 @@
     <javac srcdir="src" destdir="build" includeantruntime="false">
       <classpath>
         <pathelement location="lib/junit-4.12.jar"/>
-    		<pathelement location="lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="lib/hamcrest-core-1.3.jar"/>
       </classpath>
     </javac>
   </target>
@@ -20,7 +20,7 @@
       <classpath>
         <pathelement location="build"/>
         <pathelement location="lib/junit-4.12.jar"/>
-		    <pathelement location="lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="lib/hamcrest-core-1.3.jar"/>
       </classpath>
     </junit> 
   </target>
