@@ -1,12 +1,12 @@
 /*
  */
-package tests;
+package ija.ija2016.project.test;
 
-import factories.AbstractFactorySolitaire;
-import factories.FactoryKlondike;
-import interfaces.Card;
-import interfaces.CardDeck;
-import interfaces.CardStack;
+import ija.ija2016.project.factory.AbstractFactorySolitaire;
+import ija.ija2016.project.factory.FactoryKlondike;
+import ija.ija2016.project.model.cards.Card;
+import ija.ija2016.project.model.cards.CardDeck;
+import ija.ija2016.project.model.cards.CardStack;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.After;

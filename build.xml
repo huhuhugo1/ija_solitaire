@@ -16,7 +16,7 @@
   <target name="run" depends="compile">
     <junit>
     <formatter type="plain" usefile="false"/>
-    <test name="tests.HomeWork2Test"/>
+    <test name="ija.ija2016.project.test.HomeWork2Test"/>
       <classpath>
         <pathelement location="build"/>
         <pathelement location="lib/junit-4.12.jar"/>

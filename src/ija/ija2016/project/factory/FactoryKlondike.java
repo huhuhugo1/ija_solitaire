@@ -1,16 +1,16 @@
-package factories;
+package ija.ija2016.project.factory;
 
-import factories.AbstractFactorySolitaire;
+import ija.ija2016.project.factory.AbstractFactorySolitaire;
 
-import interfaces.Card;
-import interfaces.CardDeck;
-import interfaces.CardStack;
+import ija.ija2016.project.model.cards.Card;
+import ija.ija2016.project.model.cards.CardDeck;
+import ija.ija2016.project.model.cards.CardStack;
 
-import classes.CardClass;
-import classes.CardDeckClass;
-import classes.CardStackClass;
-import classes.TargetCardDeckClass;
-import classes.WorkingCardStackClass;
+import ija.ija2016.project.model.cards.CardClass;
+import ija.ija2016.project.model.cards.CardDeckClass;
+import ija.ija2016.project.model.cards.CardStackClass;
+import ija.ija2016.project.model.cards.TargetCardDeckClass;
+import ija.ija2016.project.model.cards.WorkingCardStackClass;
 
 public class FactoryKlondike extends AbstractFactorySolitaire {
     public CardDeck createCardDeck() {

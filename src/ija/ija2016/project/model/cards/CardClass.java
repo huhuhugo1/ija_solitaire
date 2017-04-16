@@ -1,5 +1,5 @@
-package classes;
-import interfaces.Card;
+package ija.ija2016.project.model.cards;
+import ija.ija2016.project.model.cards.Card;
 
 public class CardClass implements Card {
     

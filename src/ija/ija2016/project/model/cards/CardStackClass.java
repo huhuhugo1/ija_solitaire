@@ -1,6 +1,6 @@
-package classes;
-import interfaces.Card;
-import interfaces.CardStack;
+package ija.ija2016.project.model.cards;
+import ija.ija2016.project.model.cards.Card;
+import ija.ija2016.project.model.cards.CardStack;
 
 public class CardStackClass implements CardStack {
 
