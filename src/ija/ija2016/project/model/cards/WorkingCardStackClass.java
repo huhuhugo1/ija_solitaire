@@ -12,46 +12,46 @@ public class WorkingCardStackClass extends CardStackClass
     }
 
 	public boolean put(Card card) {
-        if (top == stack.length)
+        if (top == pack.length)
             return false;
 
         if (top == 0) {
             if (card.value() != 13)
                 return false;
         } else {
-            if ((stack[top-1].value() - 1) != card.value())
+            if ((pack[top-1].value() - 1) != card.value())
                 return false;
         
-            if (card.similarColorTo(stack[top-1].color()))
+            if (card.similarColorTo(pack[top-1].color()))
                 return false;
         }
 
-		stack[top] = card;
+		pack[top] = card;
         top++;
 
 		return true;
 	}
 
-    public boolean put(CardStack stack) {
+    public boolean put(CardStack pack) {
         
-        if (top + stack.size() >= this.stack.length)
+        if (top + pack.size() >= this.pack.length)
             return false;
 
-        Card card = ((CardStackClass) stack).stack[0];
+        Card card = ((CardStackClass) pack).pack[0];
 
         if (top == 0) {
             if (card.value() != 13)
                 return false;
         } else {
-            if ((this.stack[top-1].value() - 1) != card.value())
+            if ((this.pack[top-1].value() - 1) != card.value())
                 return false;
         
-            if (card.similarColorTo(this.stack[top-1].color()))
+            if (card.similarColorTo(this.pack[top-1].color()))
                 return false;
         }
         
-        System.arraycopy(((CardStackClass)stack).stack, 0, this.stack, top, stack.size());
-        top += stack.size();
+        System.arraycopy(((CardStackClass)pack).pack, 0, this.pack, top, pack.size());
+        top += pack.size();
         return true;     
     }
 }

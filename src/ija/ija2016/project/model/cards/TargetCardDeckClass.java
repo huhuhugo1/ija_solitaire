@@ -12,21 +12,21 @@ public class TargetCardDeckClass extends CardDeckClass {
 
     @Override
     public boolean put (Card card) {
-        if (top == deck.length)
+        if (top == pack.length)
             return false;
         
         if (top == 0) {
             if (card.value() != 1)
                 return false;
         } else {
-            if ((deck[top-1].value() + 1) != card.value())
+            if ((pack[top-1].value() + 1) != card.value())
                 return false;
         }
 
         if (card.color() != color)
             return false;
 
-        deck[top] = card;
+        pack[top] = card;
         top++;
         
         return true;

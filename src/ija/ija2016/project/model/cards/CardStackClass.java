@@ -2,79 +2,43 @@ package ija.ija2016.project.model.cards;
 import ija.ija2016.project.model.cards.Card;
 import ija.ija2016.project.model.cards.CardStack;
 
-public class CardStackClass implements CardStack {
-
-    Card stack[];
-    int top;
-
+public class CardStackClass extends CardPackClass implements CardStack {
     public CardStackClass(int size) {
-        this.stack = new Card[size];
-        this.top = 0;
+        super(size);
     }
 
-    public boolean isEmpty() {
-        return (top == 0);
+    /*** CardStack interface implementations ***/
+    public CardStack get(int length) {
+        if (length < 0)
+            return new CardStackClass(0);
+
+        CardStackClass ret_pack = new CardStackClass(length);
+        ret_pack.top = length;
+        System.arraycopy(pack, top - length, ret_pack.pack, 0, length);
+        return ret_pack;
     }
 
-    public int size() {
-        return top;
+    public CardStack get(Card card) {
+        int index = java.util.Arrays.asList(pack).indexOf(card);
+        return get(top - index);
     }
 
-    public boolean equals(Object other){
-        if (other == null) 
-            return false;
-        if (other == this) 
-            return true;
-        if (!(other instanceof CardStackClass))
-            return false;
-        CardStackClass cl_other = (CardStackClass) other;
-        if (this.top != cl_other.top)
-            return false;
-        for (int i = 0; i < top; i++)
-            if (!this.stack[i].equals(cl_other.stack[i]))
-                return false;
-        return true;
+    public CardStack pop(int length) {
+        CardStack x = get(length);
+        top -= length;
+        return x;
     }
 
-    public int hashCode() {
-        int hash = 0;
-        for (int i = 0; i < top; i++)
-            hash += stack[i].hashCode()*Math.pow(1000,i);
-        return hash;
+    public CardStack pop(Card card) {
+        int index = java.util.Arrays.asList(pack).indexOf(card);
+        CardStack x = get(top - index);
+        top = index;
+        return x;
     }
 
-    /*** Interface implementation ***/
-    public boolean put(CardStack stack) {
-        System.arraycopy(((CardStackClass)stack).stack, 0, this.stack, top, stack.size());
-        top += stack.size();
+    public boolean put(CardStack pack) {
+        System.arraycopy(((CardStackClass)pack).pack, 0, this.pack, top, pack.size());
+        top += pack.size();
         return true;     
     }
-
-    public boolean put(Card card) {
-        stack[top] = card;
-        top++;
-        return true;
-    }
-
-    public CardStack pop (Card card) {
-        int index;
-        if ((index = java.util.Arrays.asList(stack).indexOf(card)) >= 0) {
-            int length = top - index;
-            top = index;
-
-            CardStackClass ret_stack = new CardStackClass(length);
-            ret_stack.top = length;
-            System.arraycopy(stack, index, ret_stack.stack, 0, length);
-            return ret_stack;
-        } else     
-            return new CardStackClass(0);
-    }
-
-    public Card pop() {
-        if (top == 0)
-            return null;
-        top--;
-        return stack[top];
-    }
 }
-
