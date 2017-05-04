@@ -1,12 +1,13 @@
 package ija.ija2016.project.model.cards;
+
+import java.io.*;
 import ija.ija2016.project.model.cards.Card;
 import ija.ija2016.project.model.cards.CardStack;
 
-public class WorkingCardStackClass extends CardStackClass
-{
+public class WorkingPack extends CardStack implements Serializable {
 	Card.Color color;
 
-	public WorkingCardStackClass(int size) {
+	public WorkingPack(int size) {
 		super(size);
         top = 0;
     }
@@ -37,7 +38,7 @@ public class WorkingCardStackClass extends CardStackClass
         if (top + pack.size() >= this.pack.length)
             return false;
 
-        Card card = ((CardStackClass) pack).pack[0];
+        Card card = ((CardStack) pack).pack[0];
 
         if (top == 0) {
             if (card.value() != 13)
@@ -50,7 +51,7 @@ public class WorkingCardStackClass extends CardStackClass
                 return false;
         }
         
-        System.arraycopy(((CardStackClass)pack).pack, 0, this.pack, top, pack.size());
+        System.arraycopy(((CardStack)pack).pack, 0, this.pack, top, pack.size());
         top += pack.size();
         return true;     
     }

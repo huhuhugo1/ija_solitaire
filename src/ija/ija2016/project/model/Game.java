@@ -1,76 +1,74 @@
 package ija.ija2016.project.model;
 
+import java.io.*;
+import java.util.*;
 import ija.ija2016.project.model.cards.Card;
 import ija.ija2016.project.model.cards.CardStack;
 
-import ija.ija2016.project.model.cards.CardClass;
-import ija.ija2016.project.model.cards.CardPackClass;
-import ija.ija2016.project.model.cards.CardDeckClass;
-import ija.ija2016.project.model.cards.CardStackClass;
-import ija.ija2016.project.model.cards.TargetCardDeckClass;
-import ija.ija2016.project.model.cards.WorkingCardStackClass;
+import ija.ija2016.project.model.cards.CardPack;
 
-import java.util.*;
+import ija.ija2016.project.model.cards.TargetPack;
+import ija.ija2016.project.model.cards.WorkingPack;
 
-public class Game {
-    Board board;
-    Stack history; 
+public class Game implements Serializable {
+   Board board;
+   Stack history; 
 
-    Game() {
-        board = new Board();
-        history = new Stack();
-    }
+   Game() {
+      board = new Board();
+      history = new Stack();
+   }
 
-    public void backup() {
-        //history.push(this.)
-    }
+   public void backup() {
+      //history.push(this.)
+   }
 
-    public boolean save() {
-        return true;
-    }
+   public boolean save() {
+      return true;
+   }
 
-    public boolean load() {
-        return true;
-    }
+   public boolean load() {
+      return true;
+   }
 
-    public boolean undo() {
-        return true;        
-    }
+   public boolean undo() {
+      return true;      
+   }
 
-    public boolean hint() {
-        return true;
-    }
+   public boolean hint() {
+      return true;
+   }
 
-    public boolean move(CardPackClass source, CardPackClass target) {
-        return move(source, target, 1);
-    }
+   public boolean move(CardPack source, CardPack target) {
+      return move(source, target, 1);
+   }
 
-    public boolean move(CardPackClass source, CardPackClass target, int number) {
-        Card card;
-        CardStack cardstack;
+   public boolean move(CardPack source, CardPack target, int number) {
+      Card card;
+      CardStack cardstack;
 
-        if (number == 1) {
-            if ((card = source.get()) != null) {
-                if (target.put(card)){
-                    source.pop();
-                    return true;
-                }
+      if (number == 1) {
+         if ((card = source.get()) != null) {
+            if (target.put(card)){
+               source.pop();
+               return true;
             }
-                    
-        } else {
-            if ((cardstack = source.get(number)) != null) {
-                if (target.put(cardstack)) {
-                    source.pop(number);
-                    return true;
-                }
+         }
+               
+      } else {
+         if ((cardstack = source.get(number)) != null) {
+            if (target.put(cardstack)) {
+               source.pop(number);
+               return true;
             }
-        }
-        
-        return false;
-    }
+         }
+      }
+      
+      return false;
+   }
 
-    public boolean nextCard() {
-        return true;
-    }
-    
+   public boolean nextCard() {
+      return true;
+   }
+   
 }

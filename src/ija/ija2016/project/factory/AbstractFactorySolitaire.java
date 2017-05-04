@@ -4,10 +4,6 @@ import ija.ija2016.project.model.cards.Card;
 import ija.ija2016.project.model.cards.CardDeck;
 import ija.ija2016.project.model.cards.CardStack;
 
-import ija.ija2016.project.model.cards.CardClass;
-import ija.ija2016.project.model.cards.CardDeckClass;
-import ija.ija2016.project.model.cards.CardStackClass;
-
 public abstract class AbstractFactorySolitaire extends java.lang.Object {
     public abstract CardDeck createCardDeck();
 

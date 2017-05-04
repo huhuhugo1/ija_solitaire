@@ -1,11 +1,13 @@
 package ija.ija2016.project.model.cards;
+
+import java.io.*;
 import ija.ija2016.project.model.cards.Card;
 import ija.ija2016.project.model.cards.CardDeck;
 
-public class TargetCardDeckClass extends CardDeckClass {
+public class TargetPack extends CardDeck implements Serializable {
     Card.Color color;
     
-    public TargetCardDeckClass(int size, Card.Color color) {
+    public TargetPack(int size, Card.Color color) {
         super(size);    //vola konstruktor predka
         this.color = color; 
     }
