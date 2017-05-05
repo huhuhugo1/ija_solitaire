@@ -7,6 +7,7 @@ import ija.ija2016.project.factory.FactoryKlondike;
 import ija.ija2016.project.model.cards.Card;
 import ija.ija2016.project.model.cards.CardDeck;
 import ija.ija2016.project.model.cards.CardStack;
+import ija.ija2016.project.model.Game;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.After;
@@ -160,5 +161,11 @@ public class HomeWork2Test {
         Assert.assertTrue("Vkladame odebranou mnozinu.", pack2.put(s));
         
         Assert.assertEquals("Pracovni balicek c. 2 obsahuje 3 karty.", 3, pack2.size());
+    }
+
+    @Test
+    public void testGame() {
+        
+        Game game = new Game();
     }    
 }

@@ -6,8 +6,11 @@ import ija.ija2016.project.model.cards.CardDeck;
 
 public class PutDownPack extends CardDeck implements Serializable {
     
-    public PutDownPack(int size) {
-        super(size);    //vola konstruktor predka
-    }
+   public PutDownPack(int size) {
+      super(size);    //vola konstruktor predka
+   }
 
+   public boolean put(Card card) {
+      return false;
+   }
 }

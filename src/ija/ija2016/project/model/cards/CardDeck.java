@@ -4,7 +4,7 @@ import ija.*;
 import java.io.*;
 import java.util.*;
 
-public class CardDeck extends CardPack implements Serializable {
+public class CardDeck extends CardStack implements Serializable {
     public CardDeck(int size) {
         super(size);
     }
@@ -15,14 +15,6 @@ public class CardDeck extends CardPack implements Serializable {
     }
 
     public CardStack get(Card card) {
-        return null;
-    }
-
-    public CardStack pop(int length) {
-        return null;
-    }
-
-    public CardStack pop(Card card) {
         return null;
     }
     
@@ -38,23 +30,5 @@ public class CardDeck extends CardPack implements Serializable {
             }
         }
         return pack;
-    }
-
-    public static CardDeck create4StandardDeck() {
-        CardDeck pack = new CardDeck(13*4*4);
-        for (int i = 0; i < 4; i++) {
-            for (Card.Color color : Card.Color.values()) {
-                for (int val = 1; val <= 13; val++) {
-                    pack.put(new Card(color, val));
-                }
-            }
-        }
-        return pack;
-    }
-
-    public void shuffle() {
-        List<Card> list = Arrays.asList(super.pack);
-        Collections.shuffle(list);
-        list.toArray(super.pack);
     }
 }

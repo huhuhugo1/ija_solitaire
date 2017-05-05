@@ -2,48 +2,69 @@ package ija.ija2016.project.model;
 
 import java.io.*;
 import java.util.*;
+import org.apache.commons.lang3.SerializationUtils;
+
 import ija.ija2016.project.model.cards.Card;
 import ija.ija2016.project.model.cards.CardStack;
-
-import ija.ija2016.project.model.cards.CardPack;
-
+import ija.ija2016.project.model.cards.PutDownPack;
 import ija.ija2016.project.model.cards.TargetPack;
 import ija.ija2016.project.model.cards.WorkingPack;
 
 public class Game implements Serializable {
    Board board;
-   Stack history; 
+   Stack<Board> history; 
 
-   Game() {
+   public Game() {
       board = new Board();
       history = new Stack();
    }
 
-   public void backup() {
-      //history.push(this.)
-   }
-
-   public boolean save() {
-      return true;
-   }
-
-   public boolean load() {
-      return true;
-   }
-
    public boolean undo() {
+      this.board = history.pop();
       return true;      
    }
 
+   public boolean save(String path) {
+      try {
+         SerializationUtils.serialize(this, new FileOutputStream(path));
+         return true;
+      } catch (Exception e) {
+         return false;
+      }
+   }
+
+   public boolean load(String path) {
+      try {
+         Game game = (Game) SerializationUtils.deserialize(new FileInputStream(path));
+         board = game.board;
+         history = game.history;
+         return true;
+      } catch (Exception e) {
+         return false;
+      }
+   }
+
    public boolean hint() {
+      //TODO
       return true;
    }
 
-   public boolean move(CardPack source, CardPack target) {
+   public boolean nextCard() {
+      Card card = board.sourcePack.pop();
+      if (card != null)
+         board.putDownPack.insert(card);
+      else
+         while((card = board.putDownPack.pop()) != null)
+            board.sourcePack.insert(card);
+
+      return true;
+   }
+
+   public boolean move(CardStack source, CardStack target) {
       return move(source, target, 1);
    }
 
-   public boolean move(CardPack source, CardPack target, int number) {
+   public boolean move(CardStack source, CardStack target, int number) {
       Card card;
       CardStack cardstack;
 
@@ -65,10 +86,5 @@ public class Game implements Serializable {
       }
       
       return false;
-   }
-
-   public boolean nextCard() {
-      return true;
-   }
-   
+   }   
 }
