@@ -7,6 +7,12 @@ public class WorkingPack extends CardStack implements Serializable {
       top = 0;
    }
 
+   public void afterChange() {
+      Card card = peak();
+      if (card != null)
+         card.turnFaceUp();
+   }
+
    public boolean put(Card card) {
       if (top == pack.length)
          return false;

@@ -32,6 +32,7 @@
     <mkdir dir="dest-client"/>
     <jar destfile = "dest-client/ija-client.jar" basedir = "build"  compress="true">
       <fileset dir="src" includes="**/*.fxml" />
+      <fileset dir="lib" includes="**/*.png" />
       <manifest>
         <attribute name = "Main-Class" value = "gui.Main"/>
       </manifest>

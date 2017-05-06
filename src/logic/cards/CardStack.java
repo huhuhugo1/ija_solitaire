@@ -11,11 +11,7 @@ public class CardStack implements Serializable {
       this.top = 0;
    }
 
-   public void afterChange() {
-      Card card = peak();
-      if (card != null)
-         card.turnFaceUp();
-   }
+   public void afterChange() {}
 
    public int size() {
       return this.top;

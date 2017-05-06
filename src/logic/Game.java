@@ -48,9 +48,10 @@ public class Game implements Serializable {
 
    public boolean nextCard() {
       Card card = board.sourcePack.pop();
-      if (card != null)
+      if (card != null) {
+         card.turnFaceUp();
          board.putDownPack.insert(card);
-      else
+      } else
          while((card = board.putDownPack.pop()) != null) {
             card.turnFaceDown();
             board.sourcePack.insert(card);
