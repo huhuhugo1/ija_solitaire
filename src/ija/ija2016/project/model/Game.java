@@ -11,7 +11,7 @@ import ija.ija2016.project.model.cards.TargetPack;
 import ija.ija2016.project.model.cards.WorkingPack;
 
 public class Game implements Serializable {
-   Board board;
+   public Board board;
    Stack<Board> history; 
 
    public Game() {
@@ -54,9 +54,11 @@ public class Game implements Serializable {
       if (card != null)
          board.putDownPack.insert(card);
       else
-         while((card = board.putDownPack.pop()) != null)
+         while((card = board.putDownPack.pop()) != null) {
+            card.turnFaceDown();
             board.sourcePack.insert(card);
-
+         }
+            
       return true;
    }
 

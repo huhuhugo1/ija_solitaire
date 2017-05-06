@@ -10,10 +10,10 @@ import ija.ija2016.project.model.cards.SourcePack;
 import ija.ija2016.project.model.cards.PutDownPack;
 
 public class Board implements Serializable {
-   WorkingPack workingPacks[];
-   TargetPack targetPacks[];
-   SourcePack sourcePack;
-   PutDownPack putDownPack;
+   public WorkingPack workingPacks[];
+   public TargetPack targetPacks[];
+   public SourcePack sourcePack;
+   public PutDownPack putDownPack;
 
    public Board() {
       CardStack stack4 = CardStack.create4StandardStack();
@@ -22,7 +22,8 @@ public class Board implements Serializable {
       this.workingPacks = new WorkingPack[7];
       for (int i = 0; i < 7; i++) {
          this.workingPacks[i] = new WorkingPack(13 + i);
-         this.workingPacks[i].put(stack4.pop(i + 1));
+         this.workingPacks[i].insert(stack4.pop(i + 1));
+         this.workingPacks[i].afterChange();
       }
 
       this.targetPacks = new TargetPack[4];

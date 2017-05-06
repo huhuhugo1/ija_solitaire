@@ -13,8 +13,8 @@ public class CardStack implements Serializable {
       this.top = 0;
    }
 
-   private void afterChange() {
-      Card card = get();
+   public void afterChange() {
+      Card card = peak();
       if (card != null)
          card.turnFaceUp();
    }
@@ -27,14 +27,16 @@ public class CardStack implements Serializable {
       return (this.top == 0);
    }
 
-   public Card get() {
+   public Card get() { return peak(); }
+   public Card peak() {
       if (this.top > 0)
          return this.pack[this.top-1];
       
       return null;
    }
 
-   public CardStack get(int length) {
+   public CardStack get(int length) { return peak(length); }
+   public CardStack peak(int length) {
       if (length < 0)
          return new CardStack(0);
 
@@ -44,20 +46,23 @@ public class CardStack implements Serializable {
       return ret_pack;
    }
 
-   public CardStack get(Card card) {
+   public CardStack get(Card card) { return peak(card); }
+   public CardStack peak(Card card) {
       int index = java.util.Arrays.asList(pack).indexOf(card);
-      return get(top - index);
+      return peak(top - index);
    }
 
    public Card pop() {
-      Card card = this.get();
-      this.top--;
-      afterChange();
+      Card card = this.peak();
+      if (card != null) {
+         this.top--;
+         afterChange();
+      }
       return card;
    }
 
    public CardStack pop(int length) {
-      CardStack x = this.get(length);
+      CardStack x = this.peak(length);
       top -= length;
       afterChange();
       return x;
@@ -65,7 +70,7 @@ public class CardStack implements Serializable {
 
    public CardStack pop(Card card) {
       int index = java.util.Arrays.asList(pack).indexOf(card);
-      CardStack x = get(top - index);
+      CardStack x = this.peak(top - index);
       top = index;
       afterChange();
       return x;
@@ -84,11 +89,11 @@ public class CardStack implements Serializable {
    }
 
    public boolean insert (Card card) {
-      if (this.top == this.pack.length)
+      if (top == pack.length)
          return false;
 
-      this.pack[this.top] = card;
-      this.top++;
+      pack[top] = card;
+      top++;
       return true;
    }
 
