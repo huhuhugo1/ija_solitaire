@@ -2,7 +2,7 @@
   <target name="clean">
     <delete dir="build"/>
   </target>
-
+  
   <target name="compile">
     <mkdir dir="build"/>
     <javac srcdir="src" destdir="build" includeantruntime="false">
@@ -14,7 +14,7 @@
     </javac>
   </target>
 
-  <target name="run" depends="compile">
+  <target name="test">
     <junit>
     <formatter type="plain" usefile="false"/>
     <test name="ija.ija2016.project.test.HomeWork2Test"/>
@@ -25,5 +25,19 @@
         <pathelement location="lib/commons-lang3-3.5.jar"/>
       </classpath>
     </junit> 
+  </target>
+
+  <target name="jar">
+    <mkdir dir="dest-client"/>
+    <jar destfile="dest-client/ija-client.jar" basedir="build">
+        <manifest>
+          <attribute name="Main-Class" value="ija.ija2016.project.gui.main_gui"/>
+        </manifest>
+    </jar>
+  </target>
+
+  <target name="run">
+    <echo>Running...</echo>
+    <java jar="dest-client/ija-client.jar" fork="true"/>
   </target>
 </project>
