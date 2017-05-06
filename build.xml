@@ -1,6 +1,7 @@
 <project>
   <target name="clean">
     <delete dir="build"/>
+    <delete dir="dest-client"/>
   </target>
   
   <target name="compile">
@@ -17,7 +18,7 @@
   <target name="test">
     <junit>
     <formatter type="plain" usefile="false"/>
-    <test name="ija.ija2016.project.test.HomeWork2Test"/>
+    <test name="test.HomeWork2Test"/>
       <classpath>
         <pathelement location="build"/>
         <pathelement location="lib/junit-4.12.jar"/>
@@ -29,15 +30,15 @@
 
   <target name="jar">
     <mkdir dir="dest-client"/>
-    <jar destfile="dest-client/ija-client.jar" basedir="build">
-        <manifest>
-          <attribute name="Main-Class" value="ija.ija2016.project.gui.main_gui"/>
-        </manifest>
+    <jar destfile = "dest-client/ija-client.jar" basedir = "build"  compress="true">
+      <fileset dir="src" includes="**/*.fxml" />
+      <manifest>
+        <attribute name = "Main-Class" value = "gui.Main"/>
+      </manifest>
     </jar>
   </target>
 
   <target name="run">
-    <echo>Running...</echo>
     <java jar="dest-client/ija-client.jar" fork="true"/>
   </target>
 </project>
