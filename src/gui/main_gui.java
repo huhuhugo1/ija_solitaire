@@ -1,4 +1,4 @@
-package hellofx;
+package gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,13 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 /**
  *
  * @author David
  */
-public class HelloFX extends Application {
+public class main_gui extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {

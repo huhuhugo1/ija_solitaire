@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="480" maxWidth="640" minHeight="480" minWidth="640" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hellofx.FXMLDocumentController">
+<AnchorPane id="AnchorPane" maxHeight="480" maxWidth="640" minHeight="480" minWidth="640" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLDocumentController">
     <children>
       <AnchorPane>
          <children>
@@ -47,7 +47,7 @@
         <!-- CARD DECK -->
       <AnchorPane layoutX="31.0" layoutY="50.0">
          <children>
-            <ImageView fx:id="gCardDeck" fitHeight="100.0" fitWidth="84.0" onMouseClicked="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="gCardDeck" fitHeight="100.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../res/BC.png" />
                </image>
