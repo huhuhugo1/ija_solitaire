@@ -1,12 +1,15 @@
 package gui;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.Node;
+import javafx.scene.control.Control;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -15,6 +18,8 @@ import javafx.event.EventHandler;
 import javafx.scene.layout.AnchorPane;
 import logic.Game;
 import logic.cards.*;
+
+import javax.xml.transform.Source;
 
 /**
  *
@@ -38,17 +43,63 @@ public class Controller implements Initializable {
     private ImageView TP2; // TargetPack 2
     @FXML
     private ImageView TP3; // TargetPack 3
-    @FXML
-    private ImageView TP4; // TargetPack 4
-    @FXML
-    private ImageView TP5; // TargetPack 5
-    @FXML
-    private ImageView TP6; // TargetPack 6
+
+    CardStack source;
+    int num;
+    boolean first_click = true;
+
 
     @FXML
     private void handleOnMouseClicked(MouseEvent event) {
-//        System.out.println("You clicked me!");
-        System.out.println("mouse click detected! " + event.getSource());
+        Object o = event.getSource();
+        String id;
+
+        if (o instanceof ImageView)
+            id =((ImageView)o).getId();
+        else {
+            id = o.toString().substring(13,16);
+            System.out.println(id);
+            //return;
+        }
+
+        if (first_click) {
+            source = decodePackID(id);
+            num = decodeCardIdx(id);
+            first_click = false;
+        } else {
+            if (source instanceof WorkingPack && num >= 0)
+                System.out.println(game.move(source, decodePackID(id), source.size() - num));
+            else
+                System.out.println(game.move(source, decodePackID(id)));
+            first_click = true;
+
+            for (int i = 0; i < 7; i++)
+                printWorkingPack(i);
+
+            printSourcePackPutDownPack();
+            printTargetPacks();
+        }
+
+    }
+
+    private Integer decodeCardIdx(String id) {
+        if (id.length() > 3) {
+            return Integer.parseInt(id.substring(4, 6));
+        }
+        return -1;
+    }
+
+    private CardStack decodePackID(String id) {
+        if (id.length() >= 3) {
+           if (id.startsWith("WP")) {
+               return game.board.workingPacks[Character.getNumericValue(id.charAt(2))];
+           } else if (id.startsWith("TP")) {
+               return game.board.targetPacks[Character.getNumericValue(id.charAt(2))];
+           } else if (id.startsWith("PDP")) {
+                return game.board.putDownPack;
+           }
+        }
+        return null;
     }
 
     private Image printCardFromPack(CardStack pack, int i) {
