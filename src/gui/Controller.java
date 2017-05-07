@@ -22,34 +22,35 @@ import logic.cards.*;
  * @login xkubic39
  */
 public class Controller implements Initializable {
-
-    @FXML
-    private ImageView gCardDeck; // fx:id="gCardDeck"
-    @FXML
-    private ImageView gPutDownPack; // fx:id="gPutDownPack"
     Game game = new Game();
 
     @FXML
+    private ImageView SP; // fx:id="SP"
+    @FXML
+    private ImageView PDP; // fx:id="PDP"
+    @FXML
     private AnchorPane WP;
+    @FXML
+    private ImageView TP0;
+    @FXML
+    private ImageView TP1;
+    @FXML
+    private ImageView TP2;
+    @FXML
+    private ImageView TP3;
 
-    private Image printPack(CardStack pack) {
-        if (pack.size() > 0)
-            if (pack.peak().isTurnedFaceUp())
-                return new Image("/res/" + pack.peak() + ".png");
-            else
-                return new Image("/res/BC.png");
-        else
-            return null;
-    }
-
-    private Image printWorkingPackCard(CardStack pack, int i) {
-        if (pack.size() > i)
+    private Image printCardFromPack(CardStack pack, int i) {
+        if (pack.size() > i && i >= 0)
             if (pack.pack[i].isTurnedFaceUp())
                 return new Image("/res/" + pack.pack[i] + ".png");
             else
                 return new Image("/res/BC.png");
         else
             return null;
+    }
+
+    private Image printCardOnTop(CardStack pack) {
+        return printCardFromPack(pack, pack.size() - 1);
     }
 
     private void printWorkingPack(int number) {
@@ -64,54 +65,60 @@ public class Controller implements Initializable {
         }
 
         if (pack != null) {
-            System.out.print("\"Hello\"");
             int i = 0;
             for (Node node : pack.getChildren()) {
                 if (node instanceof ImageView) {
-                    node.setVisible(true);
-                    ((ImageView) node).setImage(printWorkingPackCard(game.board.workingPacks[number], i));
+                    Image image = printCardFromPack(game.board.workingPacks[number], i);
+                    if (image == null)
+                        node.setVisible(false);
+                    else
+                        node.setVisible(true);
+
+                    ((ImageView) node).setImage(image);
                     i++;
                 }
             }
         }
     }
 
-    /*
-        @FXML
-        private void handleButtonAction(ActionEvent event) {
-            System.out.println("Toto je cardDeck!");
-        }
-    */
+    private void printTargetPacks() {
+        TP0.setImage(printCardOnTop(game.board.targetPacks[0]));
+        TP1.setImage(printCardOnTop(game.board.targetPacks[1]));
+        TP2.setImage(printCardOnTop(game.board.targetPacks[2]));
+        TP3.setImage(printCardOnTop(game.board.targetPacks[3]));
+    }
+
+    private void printSourcePackPutDownPack() {
+        SP.setImage(printCardOnTop(game.board.sourcePack));
+        PDP.setImage(printCardOnTop(game.board.putDownPack));
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        gCardDeck.setImage(new Image(Main.class.getResourceAsStream("/res/BC.png")));
-
-        //
         for (int i = 0; i < 7; i++)
             printWorkingPack(i);
 
-        // click on gCardDeck object
-        gCardDeck.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        printSourcePackPutDownPack();
+
+        SP.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 if (game.nextCard()) {
-                    gCardDeck.setImage(printPack(game.board.sourcePack));
-                    gPutDownPack.setImage(printPack(game.board.putDownPack));
+                    printSourcePackPutDownPack();
                 }
                 event.consume();
             }
         });
 
-        gPutDownPack.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        PDP.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
 
-                gPutDownPack.setImage(new Image("file:/../../lib/res/A(C).png"));
+                PDP.setImage(new Image("file:/../../lib/res/A(C).png"));
 
                 System.out.println("Juuuu, jeeee... CardDeck!");
-                //   if (!gCardDeck.isVisible())
-                //      gCardDeck.setVisible(true);
+                //   if (!SP.isVisible())
+                //      SP.setVisible(true);
 
                 event.consume();
             }

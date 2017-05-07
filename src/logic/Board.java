@@ -2,6 +2,7 @@ package logic;
 
 import java.io.*;
 import logic.cards.Card;
+import logic.cards.CardDeck;
 import logic.cards.CardStack;
 import logic.cards.TargetPack;
 import logic.cards.WorkingPack;
@@ -15,7 +16,7 @@ public class Board implements Serializable {
    public PutDownPack putDownPack;
 
    public Board() {
-      CardStack stack4 = CardStack.create4StandardStack();
+      CardStack stack4 = CardDeck.createStandardDeck();
       stack4.shuffle();
 
       this.workingPacks = new WorkingPack[7];

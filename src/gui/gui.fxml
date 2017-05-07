@@ -52,11 +52,11 @@
         <AnchorPane layoutX="30.0" layoutY="45.0">
             <children>
                 <Circle fill="#ffffff36" layoutX="34.0" layoutY="52.0" radius="25.0" stroke="#4cdd28" strokeType="INSIDE" strokeWidth="5.0" />
-                <ImageView fx:id="gCardDeck" fitHeight="100.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="SP" fitHeight="100.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                     </image>
                 </ImageView>
-                <ImageView fx:id="gPutDownPack" fitHeight="100.0" fitWidth="81.0" layoutX="80.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="PDP" fitHeight="100.0" fitWidth="81.0" layoutX="80.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../lib/../lib/res/2(C).png" />
                     </image>
@@ -69,7 +69,7 @@
             <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f00" height="100.0" opacity="0.50" stroke="#b2b2b2" strokeType="INSIDE" width="70.0" />
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f9f" height="90.0" layoutX="5.0" layoutY="5.0" opacity="0.62" stroke="#b2b2b2" strokeType="INSIDE" width="60.0" />
-                <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="15.0" layoutY="27.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="TP0" id="TP0" fitHeight="50.0" fitWidth="40.0" layoutX="15.0" layoutY="27.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@/res/colors/CL.png" />
                     </image>
@@ -82,7 +82,7 @@
             <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f00" height="100.0" opacity="0.50" stroke="#b2b2b2" strokeType="INSIDE" width="70.0" />
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f9f" height="90.0" layoutX="5.0" layoutY="5.0" opacity="0.62" stroke="#b2b2b2" strokeType="INSIDE" width="60.0" />
-                <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="15.0" layoutY="23.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="TP1" id="TP1" fitHeight="50.0" fitWidth="40.0" layoutX="15.0" layoutY="23.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@/res/colors/DI.png" />
                     </image>
@@ -95,7 +95,7 @@
             <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f00" height="100.0" opacity="0.50" stroke="#b2b2b2" strokeType="INSIDE" width="70.0" />
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f9f" height="90.0" layoutX="5" layoutY="5" opacity="0.62" stroke="#b2b2b2" strokeType="INSIDE" width="60.0" />
-                <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="15.0" layoutY="30.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="TP2" id="TP2" fitHeight="50.0" fitWidth="40.0" layoutX="15.0" layoutY="30.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@/res/colors/HE.png" />
                     </image>
@@ -108,7 +108,7 @@
             <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f00" height="100.0" opacity="0.50" stroke="#b2b2b2" strokeType="INSIDE" width="70.0" />
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f9f" height="90.0" layoutX="5.0" layoutY="5.0" opacity="0.62" stroke="#b2b2b2" strokeType="INSIDE" width="60.0" />
-                <ImageView fitHeight="126.0" fitWidth="40.0" layoutX="16.0" layoutY="23.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="TP3" id="TP3" fitHeight="126.0" fitWidth="40.0" layoutX="16.0" layoutY="23.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@/res/colors/SP.png" />
                     </image>

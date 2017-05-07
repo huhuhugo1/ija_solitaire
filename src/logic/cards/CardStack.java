@@ -97,18 +97,6 @@ public class CardStack implements Serializable {
       return true;    
    }
 
-   public static CardStack create4StandardStack() {
-      CardStack pack = new CardStack(13*4*4);
-      for (int i = 0; i < 4; i++) {
-         for (Card.Color color : Card.Color.values()) {
-            for (int val = 1; val <= 13; val++) {
-               pack.put(new Card(color, val));
-            }
-         }
-      }
-      return pack;
-   }
-
    public void shuffle() {
       List<Card> list = Arrays.asList(pack);
       Collections.shuffle(list);
