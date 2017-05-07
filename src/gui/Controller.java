@@ -56,6 +56,11 @@ public class Controller implements Initializable {
     }
 
     @FXML
+    private void AnotherGameAction(ActionEvent event) {
+        //TODO
+    }
+
+    @FXML
     private void handleOnMouseClicked(MouseEvent event) {
         Object o = event.getSource();
         String id;
