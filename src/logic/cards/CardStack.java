@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.*;
 
 public class CardStack implements Serializable {
-   Card pack[];
+   public Card pack[];
    int top;
 
    public CardStack(int size) {
