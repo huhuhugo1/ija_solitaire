@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.*;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -15,6 +16,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.event.EventHandler;
+
+import javafx.stage.FileChooser;
 
 import javafx.scene.layout.AnchorPane;
 import logic.Game;
@@ -61,6 +64,27 @@ public class Controller implements Initializable {
     }
 
     @FXML
+    private void UndoAction(ActionEvent event) {
+        if (game.undo())
+            redrawGame();
+    }
+
+    @FXML
+    private void LoadAction(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Load game ...");
+        if (game.load(fileChooser.showOpenDialog(null)))
+            redrawGame();
+    }
+
+    @FXML
+    private void SaveAction(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save game ...");
+        game.save(fileChooser.showSaveDialog(null));
+    }
+
+    @FXML
     private void handleOnMouseClicked(MouseEvent event) {
         Object o = event.getSource();
         String id;
@@ -96,6 +120,7 @@ public class Controller implements Initializable {
         printSourcePackPutDownPack();
         printTargetPacks();
     }
+
     private Integer decodeCardIdx(String id) {
         if (id.length() > 3) {
             return Integer.parseInt(id.substring(4, 6));

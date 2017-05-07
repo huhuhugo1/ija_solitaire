@@ -17,28 +17,40 @@ public class Game implements Serializable {
    }
 
    public boolean undo() {
-      this.board = history.pop();
-      return true;      
+      if (history.size() > 0) {
+         board = history.pop();
+         return true;
+      }
+      return false;
    }
 
-   public boolean save(String path) {
+   public boolean save(File file) {
       try {
-         SerializationUtils.serialize(this, new FileOutputStream(path));
-         return true;
+         FileOutputStream fstream = new FileOutputStream(file);
+         ObjectOutputStream ostream = new ObjectOutputStream(fstream);
+         ostream.writeObject(board);
+         ostream.close();
+         fstream.close();
       } catch (Exception e) {
          return false;
       }
+
+      return true;
    }
 
-   public boolean load(String path) {
+   public boolean load(File file) {
       try {
-         Game game = (Game) SerializationUtils.deserialize(new FileInputStream(path));
-         board = game.board;
-         history = game.history;
-         return true;
+         FileInputStream fstream = new FileInputStream(file);
+         ObjectInputStream ostream = new ObjectInputStream(fstream);
+         board = (Board) ostream.readObject();
+         ostream.close();
+         fstream.close();
       } catch (Exception e) {
+         System.out.println("load err");
          return false;
       }
+      System.out.println("load ok");
+      return true;
    }
 
    public boolean hint() {
@@ -47,6 +59,13 @@ public class Game implements Serializable {
    }
 
    public boolean nextCard() {
+      Board backup;
+      try {
+         backup = board.deepClone();
+      } catch (Exception e) {
+         return false;
+      }
+
       Card card = board.sourcePack.pop();
       if (card != null) {
          card.turnFaceUp();
@@ -56,7 +75,8 @@ public class Game implements Serializable {
             card.turnFaceDown();
             board.sourcePack.insert(card);
          }
-            
+
+      history.push(backup);
       return true;
    }
 
@@ -67,11 +87,19 @@ public class Game implements Serializable {
    public boolean move(CardStack source, CardStack target, int number) {
       Card card;
       CardStack cardstack;
+      Board backup;
+
+      try {
+         backup = board.deepClone();
+      } catch (Exception e) {
+         return false;
+      }
 
       if (number == 1) {
          if ((card = source.get()) != null) {
             if (target.put(card)){
                source.pop();
+               history.push(backup);
                return true;
             }
          }
@@ -80,11 +108,12 @@ public class Game implements Serializable {
          if ((cardstack = source.get(number)) != null) {
             if (target.put(cardstack)) {
                source.pop(number);
+               history.push(backup);
                return true;
             }
          }
       }
-      
+
       return false;
-   }   
+   }
 }

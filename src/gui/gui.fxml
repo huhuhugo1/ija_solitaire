@@ -25,13 +25,13 @@
                                 <MenuItem fx:id="AnotherGame" mnemonicParsing="false" onAction="#AnotherGameAction" text="Another game" />
                                 <MenuItem fx:id="CloseGame" mnemonicParsing="false" text="Close game" />
                       <SeparatorMenuItem mnemonicParsing="false" />
-                                <MenuItem fx:id="SaveGame" mnemonicParsing="false" text="Save game" />
-                                <MenuItem fx:id="LoadGame" mnemonicParsing="false" text="Load game" />
+                                <MenuItem fx:id="SaveGame" mnemonicParsing="false" text="Save game" onAction="#SaveAction" />
+                                <MenuItem fx:id="LoadGame" mnemonicParsing="false" text="Load game" onAction="#LoadAction" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                   <items>
-                                  <MenuItem id="Undo" mnemonicParsing="false" text="Undo" />
+                                  <MenuItem id="Undo" mnemonicParsing="false" text="Undo" onAction="#UndoAction" />
                                   <MenuItem id="Hint" mnemonicParsing="false" text="Hint" />
                   </items>
                 </Menu>

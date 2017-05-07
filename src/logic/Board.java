@@ -35,4 +35,20 @@ public class Board implements Serializable {
       
       putDownPack = new PutDownPack(24);
    }
+
+   public Board deepClone() {
+      try {
+         ByteArrayOutputStream baos = new ByteArrayOutputStream();
+         ObjectOutputStream oos = new ObjectOutputStream(baos);
+         oos.writeObject(this);
+
+         ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+         ObjectInputStream ois = new ObjectInputStream(bais);
+         return (Board) ois.readObject();
+      } catch (IOException e) {
+         return null;
+      } catch (ClassNotFoundException e) {
+         return null;
+      }
+   }
 }
