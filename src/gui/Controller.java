@@ -4,6 +4,7 @@ import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -48,6 +49,11 @@ public class Controller implements Initializable {
     int num;
     boolean first_click = true;
 
+    @FXML
+    private void NewGameAction(ActionEvent event) {
+        game = new Game();
+        redrawGame();
+    }
 
     @FXML
     private void handleOnMouseClicked(MouseEvent event) {
@@ -55,9 +61,9 @@ public class Controller implements Initializable {
         String id;
 
         if (o instanceof ImageView)
-            id =((ImageView)o).getId();
+            id = ((ImageView) o).getId();
         else {
-            id = o.toString().substring(13,16);
+            id = o.toString().substring(13, 16);
             System.out.println(id);
             //return;
         }
@@ -73,15 +79,18 @@ public class Controller implements Initializable {
                 System.out.println(game.move(source, decodePackID(id)));
             first_click = true;
 
-            for (int i = 0; i < 7; i++)
-                printWorkingPack(i);
-
-            printSourcePackPutDownPack();
-            printTargetPacks();
+            redrawGame();
         }
 
     }
 
+    private void redrawGame() {
+        for (int i = 0; i < 7; i++)
+            printWorkingPack(i);
+
+        printSourcePackPutDownPack();
+        printTargetPacks();
+    }
     private Integer decodeCardIdx(String id) {
         if (id.length() > 3) {
             return Integer.parseInt(id.substring(4, 6));
@@ -91,13 +100,13 @@ public class Controller implements Initializable {
 
     private CardStack decodePackID(String id) {
         if (id.length() >= 3) {
-           if (id.startsWith("WP")) {
-               return game.board.workingPacks[Character.getNumericValue(id.charAt(2))];
-           } else if (id.startsWith("TP")) {
-               return game.board.targetPacks[Character.getNumericValue(id.charAt(2))];
-           } else if (id.startsWith("PDP")) {
+            if (id.startsWith("WP")) {
+                return game.board.workingPacks[Character.getNumericValue(id.charAt(2))];
+            } else if (id.startsWith("TP")) {
+                return game.board.targetPacks[Character.getNumericValue(id.charAt(2))];
+            } else if (id.startsWith("PDP")) {
                 return game.board.putDownPack;
-           }
+            }
         }
         return null;
     }
@@ -118,9 +127,9 @@ public class Controller implements Initializable {
 
     private void printWorkingPack(int number) {
         AnchorPane pack = null;
-        for (Node node: WP.getChildren()) {
+        for (Node node : WP.getChildren()) {
             if (node.getId().equals("WP" + number)) {
-                if (node instanceof  AnchorPane)
+                if (node instanceof AnchorPane)
                     pack = (AnchorPane) node;
                 break;
             }
@@ -157,11 +166,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        for (int i = 0; i < 7; i++)
-            printWorkingPack(i);
-
-        printSourcePackPutDownPack();
-        printTargetPacks();
+        redrawGame();
 
         SP.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
@@ -173,4 +178,5 @@ public class Controller implements Initializable {
             }
         });
     }
+
 }
