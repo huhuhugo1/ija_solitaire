@@ -1,19 +1,21 @@
 package logic;
 
 import java.io.*;
-import java.util.*;
-import org.apache.commons.lang3.SerializationUtils;
-
+import stack.SizedStack;
 import logic.cards.Card;
 import logic.cards.CardStack;
 
 public class Game implements Serializable {
    public Board board;
-   Stack<Board> history; 
+   SizedStack<Board> history;
 
    public Game() {
       board = new Board();
-      history = new Stack();
+      history = new SizedStack(5);
+   }
+
+   public int getScore() {
+      return board.Score;
    }
 
    public boolean undo() {
@@ -46,10 +48,10 @@ public class Game implements Serializable {
          ostream.close();
          fstream.close();
       } catch (Exception e) {
-         System.out.println("load err");
          return false;
       }
-      System.out.println("load ok");
+
+      history.clear();
       return true;
    }
 
@@ -76,6 +78,7 @@ public class Game implements Serializable {
             board.sourcePack.insert(card);
          }
 
+      board.Score++;
       history.push(backup);
       return true;
    }
@@ -99,6 +102,7 @@ public class Game implements Serializable {
          if ((card = source.get()) != null) {
             if (target.put(card)){
                source.pop();
+               board.Score++;
                history.push(backup);
                return true;
             }
@@ -108,6 +112,7 @@ public class Game implements Serializable {
          if ((cardstack = source.get(number)) != null) {
             if (target.put(cardstack)) {
                source.pop(number);
+               board.Score++;
                history.push(backup);
                return true;
             }

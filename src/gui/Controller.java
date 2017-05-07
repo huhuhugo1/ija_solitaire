@@ -1,29 +1,24 @@
 package gui;
 
-import java.awt.*;
-import java.io.File;
+import javafx.stage.FileChooser;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
+import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.Node;
-import javafx.scene.control.Control;
-import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.event.EventHandler;
-
-import javafx.stage.FileChooser;
-
 import javafx.scene.layout.AnchorPane;
+
 import logic.Game;
 import logic.cards.*;
-
-import javax.xml.transform.Source;
 
 /**
  *
@@ -33,6 +28,8 @@ import javax.xml.transform.Source;
 public class Controller implements Initializable {
     Game game = new Game();
 
+    @FXML
+    private javafx.scene.control.Label score; // Score label
     @FXML
     private ImageView SP; // SourcePack
     @FXML
@@ -119,6 +116,8 @@ public class Controller implements Initializable {
 
         printSourcePackPutDownPack();
         printTargetPacks();
+
+        score.setText("" + game.getScore());
     }
 
     private Integer decodeCardIdx(String id) {
@@ -202,7 +201,7 @@ public class Controller implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 if (game.nextCard()) {
-                    printSourcePackPutDownPack();
+                    redrawGame();
                 }
                 event.consume();
             }

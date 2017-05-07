@@ -14,6 +14,7 @@ public class Board implements Serializable {
    public TargetPack targetPacks[];
    public SourcePack sourcePack;
    public PutDownPack putDownPack;
+   int Score;
 
    public Board() {
       CardStack stack4 = CardDeck.createStandardDeck();
@@ -34,6 +35,8 @@ public class Board implements Serializable {
       sourcePack.insert(stack4.pop(24));
       
       putDownPack = new PutDownPack(24);
+
+      Score = 0;
    }
 
    public Board deepClone() {
