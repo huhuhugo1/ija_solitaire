@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="gScreen" id="AnchorPane" maxHeight="480" maxWidth="640" minHeight="480" minWidth="640" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller">
+<AnchorPane id="AnchorPane" fx:id="gScreen" maxHeight="480" maxWidth="640" minHeight="480" minWidth="640" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller">
     <children>
         <!-- TOP PANEL -->
         <AnchorPane>
@@ -52,15 +52,8 @@
         <AnchorPane layoutX="30.0" layoutY="45.0">
             <children>
                 <Circle fill="#ffffff36" layoutX="34.0" layoutY="52.0" radius="25.0" stroke="#4cdd28" strokeType="INSIDE" strokeWidth="5.0" />
-                <ImageView fx:id="SP" fitHeight="100.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                    </image>
-                </ImageView>
-                <ImageView fx:id="PDP" fitHeight="100.0" fitWidth="81.0" layoutX="80.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../lib/../lib/res/2(C).png" />
-                    </image>
-                </ImageView>
+                <ImageView fx:id="SP" fitHeight="100.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fx:id="PDP" fitHeight="100.0" fitWidth="81.0" layoutX="80.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
             </children>
         </AnchorPane>
 
@@ -69,11 +62,12 @@
             <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f00" height="100.0" opacity="0.50" stroke="#b2b2b2" strokeType="INSIDE" width="70.0" />
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f9f" height="90.0" layoutX="5.0" layoutY="5.0" opacity="0.62" stroke="#b2b2b2" strokeType="INSIDE" width="60.0" />
-                <ImageView fx:id="TP0" id="TP0" fitHeight="50.0" fitWidth="40.0" layoutX="15.0" layoutY="27.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="15.0" layoutY="27.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@/res/colors/CL.png" />
                     </image>
                 </ImageView>
+                <ImageView id="TP0" fx:id="TP0" fitHeight="100.0" fitWidth="70.0" layoutX="0.0" layoutY="0.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
             </children>
         </AnchorPane>
 
@@ -82,11 +76,12 @@
             <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f00" height="100.0" opacity="0.50" stroke="#b2b2b2" strokeType="INSIDE" width="70.0" />
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f9f" height="90.0" layoutX="5.0" layoutY="5.0" opacity="0.62" stroke="#b2b2b2" strokeType="INSIDE" width="60.0" />
-                <ImageView fx:id="TP1" id="TP1" fitHeight="50.0" fitWidth="40.0" layoutX="15.0" layoutY="23.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="15.0" layoutY="23.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@/res/colors/DI.png" />
                     </image>
                 </ImageView>
+                <ImageView id="TP1" fx:id="TP1" fitHeight="100.0" fitWidth="70.0" layoutX="0.0" layoutY="0.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
             </children>
         </AnchorPane>
 
@@ -95,11 +90,12 @@
             <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f00" height="100.0" opacity="0.50" stroke="#b2b2b2" strokeType="INSIDE" width="70.0" />
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f9f" height="90.0" layoutX="5" layoutY="5" opacity="0.62" stroke="#b2b2b2" strokeType="INSIDE" width="60.0" />
-                <ImageView fx:id="TP2" id="TP2" fitHeight="50.0" fitWidth="40.0" layoutX="15.0" layoutY="30.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="15.0" layoutY="30.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@/res/colors/HE.png" />
                     </image>
                 </ImageView>
+                <ImageView id="TP2" fx:id="TP2" fitHeight="100.0" fitWidth="70.0" layoutX="0.0" layoutY="0.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
             </children>
         </AnchorPane>
 
@@ -108,11 +104,12 @@
             <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f00" height="100.0" opacity="0.50" stroke="#b2b2b2" strokeType="INSIDE" width="70.0" />
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f8f8f9f" height="90.0" layoutX="5.0" layoutY="5.0" opacity="0.62" stroke="#b2b2b2" strokeType="INSIDE" width="60.0" />
-                <ImageView fx:id="TP3" id="TP3" fitHeight="126.0" fitWidth="40.0" layoutX="16.0" layoutY="23.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="126.0" fitWidth="40.0" layoutX="16.0" layoutY="23.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@/res/colors/SP.png" />
                     </image>
                 </ImageView>
+                <ImageView id="TP3" fx:id="TP3" fitHeight="100.0" fitWidth="70.0" layoutX="0.0" layoutY="0.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
             </children>
 
         </AnchorPane>
@@ -120,459 +117,123 @@
         <!-- WORKING PACKS -->
         <AnchorPane id="WP" fx:id="WP" layoutX="30.0" layoutY="168.0" prefHeight="260.0" prefWidth="581.0">
             <children>
-                <AnchorPane fx:id="WP0" id="WP0">
+                <AnchorPane id="WP0" fx:id="WP0">
                     <children>
-                        <Rectangle id="WP0" arcHeight="5.0" arcWidth="5.0" fill="#96969600" height="297.0" opacity="0.49" stroke="#b2b2b2" strokeType="INSIDE" visible="false" width="70.0" />
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/../lib/res/4(D).png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
+                        <Rectangle id="WP0" arcHeight="5.0" arcWidth="5.0" fill="#96969600" height="297.0" onMouseClicked="#handleOnMouseClicked" opacity="0.49" stroke="#b2b2b2" strokeType="INSIDE" width="70.0" />
+                        <ImageView id="WP0C00" fitHeight="100.0" fitWidth="71.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP0C01" fitHeight="100.0" fitWidth="71.0" layoutY="18.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP0C02" fitHeight="100.0" fitWidth="71.0" layoutY="36.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP0C03" fitHeight="100.0" fitWidth="71.0" layoutY="54.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP0C04" fitHeight="100.0" fitWidth="71.0" layoutY="72.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP0C05" fitHeight="100.0" fitWidth="71.0" layoutY="90.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP0C06" fitHeight="100.0" fitWidth="71.0" layoutY="108.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP0C07" fitHeight="100.0" fitWidth="71.0" layoutY="126.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP0C08" fitHeight="100.0" fitWidth="71.0" layoutY="144.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP0C09" fitHeight="100.0" fitWidth="71.0" layoutY="162.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP0C10" fitHeight="100.0" fitWidth="71.0" layoutY="180.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP0C11" fitHeight="100.0" fitWidth="71.0" layoutY="198.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </AnchorPane>
-                <AnchorPane fx:id="WP1" id="WP1" layoutX="85.0">
+                <AnchorPane id="WP1" fx:id="WP1" layoutX="85.0">
                     <children>
-                        <Rectangle id="WP1" arcHeight="5.0" arcWidth="5.0" fill="#96969600" height="297.0" opacity="0.49" stroke="#b2b2b2" strokeType="INSIDE" visible="false" width="70.0" />
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/A(C).png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
+                        <Rectangle id="WP1" arcHeight="5.0" arcWidth="5.0" fill="#96969600" height="297.0" onMouseClicked="#handleOnMouseClicked" opacity="0.49" stroke="#b2b2b2" strokeType="INSIDE" width="70.0" />
+                        <ImageView id="WP1C00" fitHeight="100.0" fitWidth="71.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP1C01" fitHeight="100.0" fitWidth="71.0" layoutY="18.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP1C02" fitHeight="100.0" fitWidth="71.0" layoutY="36.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP1C03" fitHeight="100.0" fitWidth="71.0" layoutY="54.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP1C04" fitHeight="100.0" fitWidth="71.0" layoutY="72.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP1C05" fitHeight="100.0" fitWidth="71.0" layoutY="90.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP1C06" fitHeight="100.0" fitWidth="71.0" layoutY="108.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP1C07" fitHeight="100.0" fitWidth="71.0" layoutY="126.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP1C08" fitHeight="100.0" fitWidth="71.0" layoutY="144.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP1C09" fitHeight="100.0" fitWidth="71.0" layoutY="162.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP1C10" fitHeight="100.0" fitWidth="71.0" layoutY="180.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP1C11" fitHeight="100.0" fitWidth="71.0" layoutY="198.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </AnchorPane>
                 <AnchorPane fx:id="WP2" layoutX="170.0">
                     <children>
-                        <Rectangle id="WP2" arcHeight="5.0" arcWidth="5.0" fill="#96969600" height="297.0" opacity="0.49" stroke="#b2b2b2" strokeType="INSIDE" visible="false" width="70.0" />
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/A(S)2.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
+                        <Rectangle id="WP2" arcHeight="5.0" arcWidth="5.0" fill="#96969600" height="297.0" onMouseClicked="#handleOnMouseClicked" opacity="0.49" stroke="#b2b2b2" strokeType="INSIDE" width="70.0" />
+                        <ImageView id="WP2C00" fitHeight="100.0" fitWidth="71.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP2C01" fitHeight="100.0" fitWidth="71.0" layoutY="18.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP2C02" fitHeight="100.0" fitWidth="71.0" layoutY="36.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP2C03" fitHeight="100.0" fitWidth="71.0" layoutY="54.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP2C04" fitHeight="100.0" fitWidth="71.0" layoutY="72.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP2C05" fitHeight="100.0" fitWidth="71.0" layoutY="90.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP2C06" fitHeight="100.0" fitWidth="71.0" layoutY="108.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP2C07" fitHeight="100.0" fitWidth="71.0" layoutY="126.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP2C08" fitHeight="100.0" fitWidth="71.0" layoutY="144.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP2C09" fitHeight="100.0" fitWidth="71.0" layoutY="162.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP2C10" fitHeight="100.0" fitWidth="71.0" layoutY="180.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP2C11" fitHeight="100.0" fitWidth="71.0" layoutY="198.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </AnchorPane>
                 <AnchorPane fx:id="WP3" layoutX="255.0">
                     <children>
-                        <Rectangle id="WP3" arcHeight="5.0" arcWidth="5.0" fill="#96969600" height="297.0" opacity="0.49" stroke="#b2b2b2" strokeType="INSIDE" visible="false" width="70.0" />
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/J(S).png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
+                        <Rectangle id="WP3" arcHeight="5.0" arcWidth="5.0" fill="#96969600" height="297.0" onMouseClicked="#handleOnMouseClicked" opacity="0.49" stroke="#b2b2b2" strokeType="INSIDE" width="70.0" />
+                        <ImageView id="WP3C00" fitHeight="100.0" fitWidth="71.0" layoutY="-1.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP3C01" fitHeight="100.0" fitWidth="71.0" layoutY="17.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP3C02" fitHeight="100.0" fitWidth="71.0" layoutY="35.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP3C03" fitHeight="100.0" fitWidth="71.0" layoutY="53.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP3C04" fitHeight="100.0" fitWidth="71.0" layoutY="71.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP3C05" fitHeight="100.0" fitWidth="71.0" layoutY="89.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP3C06" fitHeight="100.0" fitWidth="71.0" layoutY="107.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP3C07" fitHeight="100.0" fitWidth="71.0" layoutY="125.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP3C08" fitHeight="100.0" fitWidth="71.0" layoutY="143.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP3C09" fitHeight="100.0" fitWidth="71.0" layoutY="161.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP3C10" fitHeight="100.0" fitWidth="71.0" layoutY="179.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP3C11" fitHeight="100.0" fitWidth="71.0" layoutY="197.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </AnchorPane>
                 <AnchorPane fx:id="WP4" layoutX="340.0">
                     <children>
-                        <Rectangle id="WP4" arcHeight="5.0" arcWidth="5.0" fill="#96969600" height="297.0" opacity="0.49" stroke="#b2b2b2" strokeType="INSIDE" visible="false" width="70.0" />
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/8(C).png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
+                        <Rectangle id="WP4" arcHeight="5.0" arcWidth="5.0" fill="#96969600" height="297.0" onMouseClicked="#handleOnMouseClicked" opacity="0.49" stroke="#b2b2b2" strokeType="INSIDE" width="70.0" />
+                        <ImageView id="WP4C00" fitHeight="100.0" fitWidth="71.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP4C01" fitHeight="100.0" fitWidth="71.0" layoutY="18.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP4C02" fitHeight="100.0" fitWidth="71.0" layoutY="36.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP4C03" fitHeight="100.0" fitWidth="71.0" layoutY="54.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP4C04" fitHeight="100.0" fitWidth="71.0" layoutY="72.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP4C05" fitHeight="100.0" fitWidth="71.0" layoutY="90.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP4C06" fitHeight="100.0" fitWidth="71.0" layoutY="108.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP4C07" fitHeight="100.0" fitWidth="71.0" layoutY="126.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP4C08" fitHeight="100.0" fitWidth="71.0" layoutY="144.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP4C09" fitHeight="100.0" fitWidth="71.0" layoutY="162.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP4C10" fitHeight="100.0" fitWidth="71.0" layoutY="180.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP4C11" fitHeight="100.0" fitWidth="71.0" layoutY="198.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </AnchorPane>
                 <AnchorPane fx:id="WP5" layoutX="425.0">
                     <children>
-                        <Rectangle id="WP5" arcHeight="5.0" arcWidth="5.0" fill="#96969600" height="297.0" opacity="0.49" stroke="#b2b2b2" strokeType="INSIDE" visible="false" width="70.0" />
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/K(C).png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
+                        <Rectangle id="WP5" arcHeight="5.0" arcWidth="5.0" fill="#96969600" height="297.0" onMouseClicked="#handleOnMouseClicked" opacity="0.49" stroke="#b2b2b2" strokeType="INSIDE" width="70.0" />
+                        <ImageView id="WP5C00" fitHeight="100.0" fitWidth="71.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP5C01" fitHeight="100.0" fitWidth="71.0" layoutY="18.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP5C02" fitHeight="100.0" fitWidth="71.0" layoutY="36.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP5C03" fitHeight="100.0" fitWidth="71.0" layoutY="54.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP5C04" fitHeight="100.0" fitWidth="71.0" layoutY="72.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP5C05" fitHeight="100.0" fitWidth="71.0" layoutY="90.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP5C06" fitHeight="100.0" fitWidth="71.0" layoutY="108.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP5C07" fitHeight="100.0" fitWidth="71.0" layoutY="126.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP5C08" fitHeight="100.0" fitWidth="71.0" layoutY="144.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP5C09" fitHeight="100.0" fitWidth="71.0" layoutY="162.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP5C10" fitHeight="100.0" fitWidth="71.0" layoutY="180.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP5C11" fitHeight="100.0" fitWidth="71.0" layoutY="198.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </AnchorPane>
                 <AnchorPane fx:id="WP6" layoutX="510.0">
                     <children>
-                        <Rectangle id="WP6" arcHeight="5.0" arcWidth="5.0" fill="#96969600" height="298.0" opacity="0.49" stroke="#b2b2b2" strokeType="INSIDE" visible="false" width="70.0" />
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../lib/res/3(D).png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView id="PutDownPack" fitHeight="100.0" fitWidth="71.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                            <image>
-                                <Image url="@../../lib/res/BC.png" />
-                            </image>
-                        </ImageView>
+                        <Rectangle id="WP6" arcHeight="5.0" arcWidth="5.0" fill="#96969600" height="298.0" onMouseClicked="#handleOnMouseClicked" opacity="0.49" stroke="#b2b2b2" strokeType="INSIDE" width="70.0" />
+                        <ImageView id="WP6C00" fitHeight="100.0" fitWidth="71.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP6C01" fitHeight="100.0" fitWidth="71.0" layoutY="18.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP6C02" fitHeight="100.0" fitWidth="71.0" layoutY="36.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP6C03" fitHeight="100.0" fitWidth="71.0" layoutY="54.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP6C04" fitHeight="100.0" fitWidth="71.0" layoutY="72.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP6C05" fitHeight="100.0" fitWidth="71.0" layoutY="90.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP6C06" fitHeight="100.0" fitWidth="71.0" layoutY="108.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP6C07" fitHeight="100.0" fitWidth="71.0" layoutY="126.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP6C08" fitHeight="100.0" fitWidth="71.0" layoutY="144.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP6C09" fitHeight="100.0" fitWidth="71.0" layoutY="162.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP6C10" fitHeight="100.0" fitWidth="71.0" layoutY="180.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="WP6C11" fitHeight="100.0" fitWidth="71.0" layoutY="198.0" onMouseClicked="#handleOnMouseClicked" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </AnchorPane>
             </children>

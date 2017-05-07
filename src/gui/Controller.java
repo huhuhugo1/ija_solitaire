@@ -25,19 +25,31 @@ public class Controller implements Initializable {
     Game game = new Game();
 
     @FXML
-    private ImageView SP; // fx:id="SP"
+    private ImageView SP; // SourcePack
     @FXML
-    private ImageView PDP; // fx:id="PDP"
+    private ImageView PDP; // SourceDropPack
     @FXML
-    private AnchorPane WP;
+    private AnchorPane WP; // WorkingPack
     @FXML
-    private ImageView TP0;
+    private ImageView TP0; // TargetPack 0
     @FXML
-    private ImageView TP1;
+    private ImageView TP1; // TargetPack 1
     @FXML
-    private ImageView TP2;
+    private ImageView TP2; // TargetPack 2
     @FXML
-    private ImageView TP3;
+    private ImageView TP3; // TargetPack 3
+    @FXML
+    private ImageView TP4; // TargetPack 4
+    @FXML
+    private ImageView TP5; // TargetPack 5
+    @FXML
+    private ImageView TP6; // TargetPack 6
+
+    @FXML
+    private void handleOnMouseClicked(MouseEvent event) {
+//        System.out.println("You clicked me!");
+        System.out.println("mouse click detected! " + event.getSource());
+    }
 
     private Image printCardFromPack(CardStack pack, int i) {
         if (pack.size() > i && i >= 0)
@@ -56,7 +68,6 @@ public class Controller implements Initializable {
     private void printWorkingPack(int number) {
         AnchorPane pack = null;
         for (Node node: WP.getChildren()) {
-            System.out.print(node.getId());
             if (node.getId().equals("WP" + number)) {
                 if (node instanceof  AnchorPane)
                     pack = (AnchorPane) node;
@@ -99,6 +110,7 @@ public class Controller implements Initializable {
             printWorkingPack(i);
 
         printSourcePackPutDownPack();
+        printTargetPacks();
 
         SP.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
@@ -109,21 +121,5 @@ public class Controller implements Initializable {
                 event.consume();
             }
         });
-
-        PDP.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-
-                PDP.setImage(new Image("file:/../../lib/res/A(C).png"));
-
-                System.out.println("Juuuu, jeeee... CardDeck!");
-                //   if (!SP.isVisible())
-                //      SP.setVisible(true);
-
-                event.consume();
-            }
-        });
-
     }
-
 }
