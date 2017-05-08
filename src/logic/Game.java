@@ -95,11 +95,70 @@ public class Game implements Serializable {
 
    /**
    * Gets hint for current game.
-   * @return true on success, false otherwise
+   * @return help message in string
    */
-   public boolean hint() {
-      //TODO
-      return true;
+   public String hint() {
+      for (int i = 0; i < 7; i++) { //vsetky working packy
+         CardStack stack = board.workingPacks[i];
+
+         //WP -> TP
+         for (int k = 0; k < 4; k++) {
+            Card card = stack.get();
+            if (card != null && board.targetPacks[k].put(card)) {
+               board.targetPacks[k].pop();
+               return "From: WorkingPack " + (i + 1) + " card " + card + " to TargetPack " + (k + 1);
+            }
+         }
+
+         //WP -> WP
+         for (int j = 0; j < stack.size(); j++) {
+            Card card = board.workingPacks[i].pack[j];
+            if (card.isTurnedFaceUp()) {
+               CardStack sub_stack = stack.get(stack.size() - j);
+               for (int k = 0; k < 7; k++) {
+                  if (board.workingPacks[k].put(sub_stack)) {
+                     board.workingPacks[k].pop(stack.size() - j);
+                     return "From: WorkingPack " + (i + 1) + " card " + card + " to WorkingPack " + (k + 1);
+                  }
+               }
+            }
+         }
+
+      }
+
+      //PDP -> TP
+      for (int k = 0; k < 4; k++) {
+         Card card = board.putDownPack.get();
+         if (card != null && board.targetPacks[k].put(card)) {
+            board.targetPacks[k].pop();
+            return "From: PutDownPack " + "card " + card + " to TargetPack " + (k + 1);
+         }
+      }
+
+      //PDP -> WP
+      for (int k = 0; k < 7; k++) {
+         Card card = board.putDownPack.get();
+         if (card != null && board.workingPacks[k].put(card)) {
+            board.workingPacks[k].pop();
+            return "From: PutDownPack " + "card " + card + " to WorkingPack " + (k + 1);
+         }
+      }
+
+      if (board.sourcePack.size() > 0)
+         return "Click on SourcePack for next card";
+
+      //TP -> WP
+      for (int j = 0; j < 4; j++) {
+         Card card = board.targetPacks[j].get();
+         for (int k = 0; k < 7; k++) {
+            if (card != null && board.workingPacks[k].put(card)) {
+               board.workingPacks[k].pop();
+               return "From: TargetPack " + (j + 1) + " card " + card + " to WorkingPack " + (k + 1);
+            }
+         }
+      }
+                
+      return "No hint was found";
    }
 
    /**

@@ -32,7 +32,7 @@
             <Menu mnemonicParsing="false" text="Edit">
               <items>
                 <MenuItem id="Undo" mnemonicParsing="false" onAction="#UndoAction" text="Undo" />
-                <MenuItem id="Hint" mnemonicParsing="false" text="Hint" />
+                <MenuItem id="Hint" mnemonicParsing="false" text="Hint" onAction="#HintAction" />
               </items>
             </Menu>
           </menus>

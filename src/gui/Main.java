@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.image.Image;
@@ -68,7 +69,6 @@ public class Main extends Application {
         Scene scene;
 
         if (Main.games_count > 1) {
-            gridPane.setGridLinesVisible(true);
             gridPane.setStyle("-fx-background-color: #000000;");
             gridPane.setHgap(1);
             gridPane.setVgap(1);
@@ -101,10 +101,17 @@ public class Main extends Application {
 
         Main.yourIDX = 0;
 
+
+
         windows[0] = FXMLLoader.load(getClass().getResource("gui.fxml"));
-        windows[1] = new Label();
-        windows[2] = new Label();
-        windows[3] = new Label();
+        windows[0].minWidth(630);
+        windows[0].minHeight(480);
+
+        for(int i = 1; i < 4; i++) {
+            Label label = new Label();
+            label.setMinSize(630, 480);
+            windows[i] = label;
+        }
 
         games_count = 1;
 

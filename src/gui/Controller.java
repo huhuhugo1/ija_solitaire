@@ -132,7 +132,10 @@ public class Controller implements Initializable {
     private void CloseGameAction(ActionEvent event) {
         if (Main.games_count == 1)
             System.exit(0);
-        Main.windows[myIDX] = new Label();
+
+        Label label = new Label();
+        label.setMinSize(640,480);
+        Main.windows[myIDX] = label;
         Main.games_count--;
         Main.redrawStage();
         return;
@@ -146,6 +149,25 @@ public class Controller implements Initializable {
     private void UndoAction(ActionEvent event) {
         if (game.undo())
             redrawGame();
+    }
+    
+    /**
+     * Shows hint
+     * @param event
+     */
+    @FXML
+    private void HintAction(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Solitaire");
+        alert.setHeaderText(null);
+        alert.setContentText(game.hint());
+
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("/res/icon128x128.png"));
+
+        alert.showAndWait();
+
+        redrawGame();
     }
 
     /**
