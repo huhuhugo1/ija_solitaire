@@ -1,14 +1,27 @@
 package logic.cards;
 import java.io.*;
 
+/**
+ * This class represents TargetPack - in game set in the top right corner
+ */
 public class TargetPack extends CardDeck implements Serializable {
    Card.Color color;
-   
+
+   /**
+    * Constructor of TargetPack
+    * @param size length of the TargetPack
+    * @param color Color of the TargetPack
+    */
    public TargetPack(int size, Card.Color color) {
       super(size);   //vola konstruktor predka
       this.color = color; 
    }
 
+   /**
+    * Put on TargetPack
+    * @param card Card to put on the TargetPack
+    * @return true in success, false otherwise
+    */
    @Override
    public boolean put(Card card) {
       if (top == pack.length)

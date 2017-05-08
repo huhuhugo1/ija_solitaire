@@ -8,14 +8,35 @@ import logic.cards.TargetPack;
 import logic.cards.WorkingPack;
 import logic.cards.SourcePack;
 import logic.cards.PutDownPack;
-
+/**
+ * This class implements Game background.
+ */
 public class Board implements Serializable {
+   /**
+    * Array of WorkingPacks
+    */
    public WorkingPack workingPacks[];
+   /**
+    * Array of TargetPacks
+    */
    public TargetPack targetPacks[];
+   /**
+    * SourcePack
+    */
    public SourcePack sourcePack;
+   /**
+    * PutDownPack
+    */
    public PutDownPack putDownPack;
+   /**
+    * Score
+    */
    int Score;
 
+   /**
+    * Constructor of Board. Creates all Packs -
+    * WorkingPacks, TargetPacks, SourcePack, PutDownPack and Score.
+    */
    public Board() {
       CardStack stack4 = CardDeck.createStandardDeck();
       stack4.shuffle();
@@ -38,7 +59,10 @@ public class Board implements Serializable {
 
       Score = 0;
    }
-
+   /**
+    * Creates DeepCopy of current game.
+    * @return null if error occurred
+    */
    public Board deepClone() {
       try {
          ByteArrayOutputStream baos = new ByteArrayOutputStream();

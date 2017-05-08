@@ -46,7 +46,7 @@
   <target name="doc">
     <javadoc encoding="UTF-8" charset="UTF-8" docencoding="UTF-8" sourcepath="src" destdir="doc">
       <fileset dir="src">
-        <include name="**" />
+        <include name="**.java" />
       </fileset>
     </javadoc>
   </target>

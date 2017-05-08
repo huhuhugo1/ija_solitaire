@@ -30,29 +30,57 @@ import logic.Game;
 import logic.cards.*;
 
 /**
- *
- * @author Jan Kubica
- * @login xkubic39
+ * This class controls actions over the objects set in *.xfml file.
  */
 public class Controller implements Initializable {
+    /**
+     * Index where to game is loaded in range 0 to 3.
+     */
     private int myIDX = Main.yourIDX;
 
+    /**
+     * Game created
+     */
     Game game = new Game();
 
+    /**
+     * Score label
+     */
     @FXML
-    private javafx.scene.control.Label score; // Score label
+    private javafx.scene.control.Label score;
+    /**
+     * SourcePack ImageView
+     */
     @FXML
     private ImageView SP; // SourcePack
+    /**
+     * PutDownPack ImageView
+     */
     @FXML
     private ImageView PDP; // SourceDropPack
+    /**
+     * WorkingPack ImageView
+     */
     @FXML
     private AnchorPane WP; // WorkingPack
+    /**
+     * TargetPack 0 ImageView
+     */
     @FXML
     private ImageView TP0; // TargetPack 0
+    /**
+     * TargetPack 1 ImageView
+     */
     @FXML
     private ImageView TP1; // TargetPack 1
+    /**
+     * TargetPack 2 ImageView
+     */
     @FXML
     private ImageView TP2; // TargetPack 2
+    /**
+     * TargetPack 3 ImageView
+     */
     @FXML
     private ImageView TP3; // TargetPack 3
 
@@ -60,12 +88,20 @@ public class Controller implements Initializable {
     int num;
     boolean first_click = true;
 
+    /**
+     * Starts new game
+     * @param event
+     */
     @FXML
     private void NewGameAction(ActionEvent event) {
         game = new Game();
         redrawGame();
     }
 
+    /**
+     * Generates geme on screen
+     * @param event
+     */
     @FXML
     private void AnotherGameAction(ActionEvent event) {
         if (Main.games_count == 1 && myIDX != 0) {
@@ -88,6 +124,10 @@ public class Controller implements Initializable {
         }
     }
 
+    /**
+     * Close game
+     * @param event
+     */
     @FXML
     private void CloseGameAction(ActionEvent event) {
         if (Main.games_count == 1)
@@ -98,12 +138,20 @@ public class Controller implements Initializable {
         return;
     }
 
+    /**
+     * Undo one move
+     * @param event
+     */
     @FXML
     private void UndoAction(ActionEvent event) {
         if (game.undo())
             redrawGame();
     }
 
+    /**
+     * Loads game
+     * @param event
+     */
     @FXML
     private void LoadAction(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -112,6 +160,10 @@ public class Controller implements Initializable {
             redrawGame();
     }
 
+    /**
+     * Redraws new game
+     * @param event
+     */
     @FXML
     private void SaveAction(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -119,6 +171,10 @@ public class Controller implements Initializable {
         game.save(fileChooser.showSaveDialog(null));
     }
 
+    /**
+     * Recognizes where was clicked and make a move
+     * @param event
+     */
     @FXML
     private void handleOnMouseClicked(MouseEvent event) {
         Object o = event.getSource();
@@ -145,9 +201,11 @@ public class Controller implements Initializable {
 
             redrawGame();
         }
-
     }
 
+    /**
+     * Redraws game and tests if win
+     */
     private void redrawGame() {
         for (int i = 0; i < 7; i++)
             printWorkingPack(i);
@@ -172,6 +230,10 @@ public class Controller implements Initializable {
         }
     }
 
+    /**
+     * Decodes Card index
+     * @param id id of Card
+     */
     private Integer decodeCardIdx(String id) {
         if (id.length() > 3) {
             return Integer.parseInt(id.substring(4, 6));
@@ -179,6 +241,10 @@ public class Controller implements Initializable {
         return -1;
     }
 
+    /**
+     * Decodes Pack index
+     * @param id id of Pack
+     */
     private CardStack decodePackID(String id) {
         if (id.length() >= 3) {
             if (id.startsWith("WP")) {
@@ -192,6 +258,11 @@ public class Controller implements Initializable {
         return null;
     }
 
+    /**
+     * Sets image for Card in Pack
+     * @param pack concrete Pack
+     * @param i number of Card from top
+     */
     private Image printCardFromPack(CardStack pack, int i) {
         if (pack.size() > i && i >= 0)
             if (pack.pack[i].isTurnedFaceUp())
@@ -202,10 +273,19 @@ public class Controller implements Initializable {
             return null;
     }
 
+    /**
+     * Sets an image on top
+     * @param pack ConcretePack
+     * @return Image
+     */
     private Image printCardOnTop(CardStack pack) {
         return printCardFromPack(pack, pack.size() - 1);
     }
 
+    /**
+     * Prints WorkingPack
+     * @param number number id of WP
+     */
     private void printWorkingPack(int number) {
         AnchorPane pack = null;
         for (Node node : WP.getChildren()) {
@@ -233,18 +313,28 @@ public class Controller implements Initializable {
         }
     }
 
+    /**
+     * Prints TargetPack
+     */
     private void printTargetPacks() {
         TP0.setImage(printCardOnTop(game.board.targetPacks[0]));
         TP1.setImage(printCardOnTop(game.board.targetPacks[1]));
         TP2.setImage(printCardOnTop(game.board.targetPacks[2]));
         TP3.setImage(printCardOnTop(game.board.targetPacks[3]));
     }
-
+    /**
+     * Prints SourcePack and PutDownPack
+     */
     private void printSourcePackPutDownPack() {
         SP.setImage(printCardOnTop(game.board.sourcePack));
         PDP.setImage(printCardOnTop(game.board.putDownPack));
     }
 
+    /**
+     * Initialize scene and listen on SourcePack
+     * @param  url url
+     * @param  rb rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         redrawGame();

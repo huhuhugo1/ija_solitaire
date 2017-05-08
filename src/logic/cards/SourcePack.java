@@ -1,13 +1,23 @@
 package logic.cards;
 import java.io.*;
 
+/**
+ * This class represents SourcePack - in game set in the top left corner.
+ */
 public class SourcePack extends PutDownPack implements Serializable {
-    
-   public SourcePack(int size) {
+    /**
+     * Constructor of SourcePack
+     * @param size length of the SourcePack
+     */
+    public SourcePack(int size) {
       super(size);    //vola konstruktor predka
    }
 
-   public Card get() {
+    /**
+     * Gets a Card from SourcePack
+     * @return null
+     */
+    public Card get() {
       return null;
    }
 }
