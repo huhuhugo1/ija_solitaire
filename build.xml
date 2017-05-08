@@ -1,16 +1,29 @@
+<!-- 
+Project to Java Programming Language - 2016/2017
+
+Project: Solitaire game
+Date: May 2017
+
+author: Juraj Kubis
+author: Jan Kubica
+-->
+
 <project>
   <target name="clean">
     <delete dir="build"/>
     <delete dir="dest-client"/>
     <delete dir="doc"/>
+    <mkdir dir="build"/>
+    <mkdir dir="dest-client"/>
+    <mkdir dir="doc"/>
   </target>
   
-  <target name="compile" depends="doc">
+  <target name="build" depends="doc">
     <mkdir dir="build"/>
     <javac srcdir="src" destdir="build" includeantruntime="false"/>
   </target>
 
-  <target name="jar" depends="compile">
+  <target name="compile" depends="build">
     <mkdir dir="dest-client"/>
     <jar destfile = "dest-client/ija-client.jar" basedir = "build"  compress="true">
       <fileset dir="src" includes="**/*.fxml" />
@@ -21,7 +34,7 @@
     </jar>
   </target>
 
-  <target name="run" depends="jar">
+  <target name="run" depends="compile">
     <java jar="dest-client/ija-client.jar" fork="true"/>
   </target>
 

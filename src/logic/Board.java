@@ -1,3 +1,13 @@
+/**
+ * Project to Java Programming Language - 2016/2017
+ * ------------------------------------------------
+ * Project: Solitaire game
+ * Date: May 2017
+ *
+ * @author  Juraj Kubis
+ * @author  Jan Kubica
+ */
+
 package logic;
 
 import java.io.*;
