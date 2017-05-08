@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.image.Image;
 import javafx.fxml.FXML;
 import logic.Game;
+import javafx.geometry.Insets;
 
 
 public class Main extends Application {
@@ -42,15 +43,17 @@ public class Main extends Application {
         if (Main.games_count > 1) {
             gridPane.setGridLinesVisible(true);
             gridPane.setStyle("-fx-background-color: #000000;");
-            gridPane.setHgap(5);
-            gridPane.setVgap(5);
+            gridPane.setHgap(1);
+            gridPane.setVgap(1);
+    //        gridPane.setPadding(new Insets(1, 1, 1, 1));
+
 
             gridPane.add(windows[0], 0, 0);
             gridPane.add(windows[1], 1, 0);
             gridPane.add(windows[2], 0, 1);
             gridPane.add(windows[3], 1, 1);
 
-            scene = new Scene(gridPane, 1275, 955);
+            scene = new Scene(gridPane, 1280, 960);
         } else {
             int idx = getNonFreeIDX();
             gridPane.add(windows[idx],0,0);
