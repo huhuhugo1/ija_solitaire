@@ -2,30 +2,12 @@
   <target name="clean">
     <delete dir="build"/>
     <delete dir="dest-client"/>
+    <delete dir="doc"/>
   </target>
   
-  <target name="compile">
+  <target name="compile" depends="doc">
     <mkdir dir="build"/>
-    <javac srcdir="src" destdir="build" includeantruntime="false">
-      <classpath>
-        <pathelement location="lib/junit-4.12.jar"/>
-        <pathelement location="lib/hamcrest-core-1.3.jar"/>
-        <pathelement location="lib/commons-lang3-3.5.jar"/>
-      </classpath>
-    </javac>
-  </target>
-
-  <target name="test" depends="compile">
-    <junit>
-    <formatter type="plain" usefile="false"/>
-    <test name="test.HomeWork2Test"/>
-      <classpath>
-        <pathelement location="build"/>
-        <pathelement location="lib/junit-4.12.jar"/>
-        <pathelement location="lib/hamcrest-core-1.3.jar"/>
-        <pathelement location="lib/commons-lang3-3.5.jar"/>
-      </classpath>
-    </junit> 
+    <javac srcdir="src" destdir="build" includeantruntime="false"/>
   </target>
 
   <target name="jar" depends="compile">
