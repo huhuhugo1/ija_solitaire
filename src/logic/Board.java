@@ -73,8 +73,10 @@ public class Board implements Serializable {
          ObjectInputStream ois = new ObjectInputStream(bais);
          return (Board) ois.readObject();
       } catch (IOException e) {
+         System.err.println("ERR: Unable to create deep clone of Board class!");
          return null;
       } catch (ClassNotFoundException e) {
+         System.err.println("ERR: Unable to create deep clone of Board class!");
          return null;
       }
    }

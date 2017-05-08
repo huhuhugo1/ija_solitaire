@@ -67,6 +67,7 @@ public class Game implements Serializable {
          ostream.close();
          fstream.close();
       } catch (Exception e) {
+         System.err.println("ERR: Unable to save game progress!");
          return false;
       }
 
@@ -86,6 +87,7 @@ public class Game implements Serializable {
          ostream.close();
          fstream.close();
       } catch (Exception e) {
+         System.err.println("ERR: Unable to load game progress!");
          return false;
       }
 
@@ -166,13 +168,8 @@ public class Game implements Serializable {
    * @return true on success, false otherwise
    */
    public boolean nextCard() {
-      Board backup;
-      try {
-         backup = board.deepClone();
-      } catch (Exception e) {
-         return false;
-      }
-
+      Board backup = board.deepClone();
+    
       Card card = board.sourcePack.pop();
       if (card != null) {
          card.turnFaceUp();
@@ -208,14 +205,8 @@ public class Game implements Serializable {
    public boolean move(CardStack source, CardStack target, int number) {
       Card card;
       CardStack cardstack;
-      Board backup;
-
-      try {
-         backup = board.deepClone();
-      } catch (Exception e) {
-         return false;
-      }
-
+      Board backup = board.deepClone();
+      
       if (number == 1) {
          if ((card = source.get()) != null) {
             if (target.put(card)){

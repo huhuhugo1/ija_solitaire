@@ -111,7 +111,6 @@ public class Controller implements Initializable {
         }
 
         int idx = Main.getFreeIDX();
-        System.out.println(idx);
         if(idx >= 0) {
             try {
                 Main.yourIDX = idx;
@@ -119,6 +118,7 @@ public class Controller implements Initializable {
                 Main.games_count++;
                 Main.redrawStage();
             } catch (Exception e) {
+                System.err.println("ERR: Unable to load \"gui.fxml\"!");
                 return;
             }
         }
@@ -206,8 +206,6 @@ public class Controller implements Initializable {
             id = ((ImageView) o).getId();
         else {
             id = o.toString().substring(13, 16);
-            System.out.println(id);
-            //return;
         }
 
         if (first_click) {
@@ -216,9 +214,9 @@ public class Controller implements Initializable {
             first_click = false;
         } else {
             if (source instanceof WorkingPack && num >= 0)
-                System.out.println(game.move(source, decodePackID(id), source.size() - num));
+                game.move(source, decodePackID(id), source.size() - num);
             else
-                System.out.println(game.move(source, decodePackID(id)));
+                game.move(source, decodePackID(id));
             first_click = true;
 
             redrawGame();
