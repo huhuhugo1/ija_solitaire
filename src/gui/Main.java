@@ -5,53 +5,84 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.image.Image;
 import javafx.fxml.FXML;
 import logic.Game;
 
+
 public class Main extends Application {
+    public static int yourIDX;
+    public static int games_count = 0;
 
-    protected int games_count = 0;
+    public static Stage stage;
+    public static Parent[] windows = new Parent[4];
 
-    @FXML
-    private void AnotherGameAction(ActionEvent event) {
-        //TODO
+    public static int getFreeIDX() {
+        for (int i = 0; i < 4; i++)
+            if(windows[i] instanceof Label)
+                return i;
+        return -1;
     }
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent window_0 = FXMLLoader.load(getClass().getResource("gui.fxml"));
-        Parent window_1 = FXMLLoader.load(getClass().getResource("gui.fxml"));
-        Parent window_2 = FXMLLoader.load(getClass().getResource("gui.fxml"));
-        Parent window_3 = FXMLLoader.load(getClass().getResource("gui.fxml"));
+    public static int getNonFreeIDX() {
+        for (int i = 0; i < 4; i++)
+            if(windows[i] instanceof Pane)
+                return i;
+        return -1;
+    }
 
+    public static void redrawStage() {
         GridPane gridPane = new GridPane();
-        gridPane.setGridLinesVisible(true);
-        gridPane.setStyle("-fx-background-color: #000000;");
-        gridPane.setHgap(5);
-        gridPane.setVgap(5);
+        Scene scene;
 
-        gridPane.add(window_0, 0, 0);
-        gridPane.add(window_1, 1, 0);
-        gridPane.add(window_2, 0, 1);
-        gridPane.add(window_3, 1, 1);
+        if (Main.games_count > 1) {
+            gridPane.setGridLinesVisible(true);
+            gridPane.setStyle("-fx-background-color: #000000;");
+            gridPane.setHgap(5);
+            gridPane.setVgap(5);
+
+            gridPane.add(windows[0], 0, 0);
+            gridPane.add(windows[1], 1, 0);
+            gridPane.add(windows[2], 0, 1);
+            gridPane.add(windows[3], 1, 1);
+
+            scene = new Scene(gridPane, 1275, 955);
+        } else {
+            int idx = getNonFreeIDX();
+            gridPane.add(windows[idx],0,0);
+            scene = new Scene(gridPane, 630, 480);
+        }
 
         stage.resizableProperty().setValue(Boolean.FALSE);
         stage.setTitle("Solitaire 1.0");
         stage.getIcons().add(new Image("/res/icon128x128.png"));
-
-        Scene scene = new Scene(gridPane, 1275, 955);
         stage.setScene(scene);
         stage.show();
+    }
 
-        /*
-        Scene scene = new Scene(window_0, 630, 480);
+    @Override
+    public void start(Stage stage) throws Exception {
+        Main.stage = stage;
+
+        Main.yourIDX = 0;
+
+        windows[0] = FXMLLoader.load(getClass().getResource("gui.fxml"));
+        windows[1] = new Label();
+        windows[2] = new Label();
+        windows[3] = new Label();
+
+        games_count = 1;
+
+        Scene scene = new Scene(windows[0], 630, 480);
+        stage.resizableProperty().setValue(Boolean.FALSE);
+        stage.setTitle("Solitaire 1.0");
+        stage.getIcons().add(new Image("/res/icon128x128.png"));
         stage.setScene(scene);
         stage.show();
-        */
-        games_count++;
     }
 
     public static void main(String[] args) {

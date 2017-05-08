@@ -15,7 +15,7 @@
     </javac>
   </target>
 
-  <target name="test">
+  <target name="test" depends="compile">
     <junit>
     <formatter type="plain" usefile="false"/>
     <test name="test.HomeWork2Test"/>
@@ -28,7 +28,7 @@
     </junit> 
   </target>
 
-  <target name="jar">
+  <target name="jar" depends="compile">
     <mkdir dir="dest-client"/>
     <jar destfile = "dest-client/ija-client.jar" basedir = "build"  compress="true">
       <fileset dir="src" includes="**/*.fxml" />
@@ -39,7 +39,7 @@
     </jar>
   </target>
 
-  <target name="run">
+  <target name="run" depends="jar">
     <java jar="dest-client/ija-client.jar" fork="true"/>
   </target>
 </project>

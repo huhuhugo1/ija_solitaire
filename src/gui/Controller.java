@@ -1,5 +1,12 @@
 package gui;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.stage.FileChooser;
 
 import java.net.URL;
@@ -26,6 +33,8 @@ import logic.cards.*;
  * @login xkubic39
  */
 public class Controller implements Initializable {
+    private int myIDX = Main.yourIDX;
+
     Game game = new Game();
 
     @FXML
@@ -57,7 +66,32 @@ public class Controller implements Initializable {
 
     @FXML
     private void AnotherGameAction(ActionEvent event) {
-        //TODO
+        if (Main.games_count == 1 && myIDX != 0) {
+            Main.windows[0] = Main.windows[myIDX];
+            Main.windows[myIDX] = new Label();
+            myIDX = 0;
+        }
+
+        int idx = Main.getFreeIDX();
+        System.out.println(idx);
+        if(idx >= 0) {
+            try {
+                Main.yourIDX = idx;
+                Main.windows[idx] = FXMLLoader.load(getClass().getResource("gui.fxml"));
+                Main.games_count++;
+                Main.redrawStage();
+            } catch (Exception e) {
+                return;
+            }
+        }
+    }
+
+    @FXML
+    private void CloseGameAction(ActionEvent event) {
+        Main.windows[myIDX] = new Label();
+        Main.games_count--;
+        Main.redrawStage();
+        return;
     }
 
     @FXML
