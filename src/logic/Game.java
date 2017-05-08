@@ -18,6 +18,10 @@ public class Game implements Serializable {
       return board.Score;
    }
 
+   public boolean win() {
+      return (board.targetPacks[0].size() + board.targetPacks[1].size() + board.targetPacks[2].size() + board.targetPacks[3].size() == 52);
+   }
+
    public boolean undo() {
       if (history.size() > 0) {
          board = history.pop();

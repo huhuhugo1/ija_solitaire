@@ -1,8 +1,10 @@
 package gui;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -154,6 +156,20 @@ public class Controller implements Initializable {
         printTargetPacks();
 
         score.setText("" + game.getScore());
+
+        if (game.win()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Solitaire");
+            alert.setHeaderText(null);
+            alert.setContentText("You have won!\nYour score is: " + game.getScore());
+
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("/res/icon128x128.png"));
+
+            alert.showAndWait();
+
+            NewGameAction(null);
+        }
     }
 
     private Integer decodeCardIdx(String id) {
