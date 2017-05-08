@@ -88,6 +88,8 @@ public class Controller implements Initializable {
 
     @FXML
     private void CloseGameAction(ActionEvent event) {
+        if (Main.games_count == 1)
+            System.exit(0);
         Main.windows[myIDX] = new Label();
         Main.games_count--;
         Main.redrawStage();
