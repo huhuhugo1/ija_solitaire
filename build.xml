@@ -42,4 +42,12 @@
   <target name="run" depends="jar">
     <java jar="dest-client/ija-client.jar" fork="true"/>
   </target>
+
+  <target name="doc">
+    <javadoc encoding="UTF-8" charset="UTF-8" docencoding="UTF-8" sourcepath="src" destdir="doc">
+      <fileset dir="src">
+        <include name="**" />
+      </fileset>
+    </javadoc>
+  </target>
 </project>
