@@ -23,7 +23,13 @@ author: Jan Kubica
     <javac srcdir="src" destdir="build" includeantruntime="false"/>
   </target>
 
-  <target name="compile" depends="build">
+  <target name="get_lib">
+    <exec executable="/bin/sh">
+      <arg value="./lib/get-libs.sh"/>
+    </exec>
+  </target>
+
+  <target name="compile" depends="build, get_lib">
     <mkdir dir="dest-client"/>
     <jar destfile = "dest-client/ija-client.jar" basedir = "build"  compress="true">
       <fileset dir="src" includes="**/*.fxml" />
